@@ -367,11 +367,11 @@ if(isset($_POST['fgpword']) && isset($_POST['fgcpword'])) {
 // DASHBOARD FUNCTIONS FOR USER
 function user_details() {
 	
-	$data = $_SESSION['login'];
+	$data = $_SESSION['user'];
 
 
 	//users details
-	$sql = "SELECT * FROM users WHERE `usname` = '$data'";
+	$sql = "SELECT * FROM user WHERE `user` = '$data'";
 	$rsl = query($sql);
 
 	//check if user details is valid
@@ -384,13 +384,6 @@ function user_details() {
     $GLOBALS['t_users'] = mysqli_fetch_array($rsl);
 
 	}
-
-	//referal details
-	$rss = "SELECT sum(`active`) AS `earn` FROM `users` WHERE `ref` = '$data'";
-	$res = query($rss);
-    $GLOBALS['t_ref'] = mysqli_fetch_array($res);
-
-	$GLOBALS['t_ref_earn'] = $GLOBALS['t_ref']['earn'] * 100;
 
 }
 
