@@ -388,11 +388,23 @@ function user_details() {
 	//set default profile picture
 	if($GLOBALS['t_users']['pix'] == '') {
 
-		$GLOBALS['t_users']['pix'] = "assets/images/log.png";
+		$GLOBALS['pix'] = "assets/images/log.png";
 
 	} else {
 
-		$GLOBALS['t_users']['pix'] = "assets/images/logo.png";
+		$GLOBALS['pix'] = $GLOBALS['t_users']['pix'];
+
+	}
+
+
+	//set default cover picture
+	if($GLOBALS['t_users']['cover'] == '') {
+
+		$GLOBALS['cover'] = "assets/images/cover.jpg";
+
+	} else {
+
+		$GLOBALS['cover'] = $GLOBALS['t_users']['cover'];
 
 	}
 }

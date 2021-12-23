@@ -16,14 +16,14 @@
     <meta itemprop="name" content="TeaGo Campus Online Social Environment (COSE)">
     <meta itemprop="description" content="TeaGo Campus Online Social Environment (COSE)">
 
-    <meta itemprop="image" content="https://cose.teagonig.com/home/assets/images/logo.png">
+    <meta itemprop="image" content="assets/images/logo.png">
 
     <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
     <meta name="description" content="TeaGo Campus Online Social Environment (COSE)">
     <meta name="keywords" content="TeaGo Campus Online Social Environment (COSE)">
     <meta property="og:title" content="TeaGo Campus Online Social Environment (COSE)" />
-    <meta property="og:image" content="https://cose.teagonig.com/home/assets/images/logo.png" />
-    <meta property="og:url" content="https://cose.teagonig.com/home/assets/images/logo.png" />
+    <meta property="og:image" content="assets/images/logo.png" />
+    <meta property="og:url" content="assets/images/logo.png" />
     <meta property="og:site_name" content="TeaGo Campus Online Social Environment (COSE)" />
     <meta property="og:description" content="TeaGo Campus Online Social Environment (COSE)" />
     <meta name="theme-color" content="#be1e2d">

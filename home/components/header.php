@@ -219,8 +219,7 @@
                              <div class="profile-thumb-small">
                                  <a href="javascript:void(0)" class="profile-triger">
                                      <figure>
-                                         <img src="<?php echo $t_users['pix']; ?>"
-                                             alt="<?php echo $t_users['user']; ?>">
+                                         <img src="<?php echo $pix; ?>" alt="<?php echo $t_users['user']; ?>">
                                      </figure>
                                  </a>
                                  <div class="profile-dropdown">
