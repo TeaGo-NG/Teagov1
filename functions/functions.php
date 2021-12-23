@@ -196,7 +196,7 @@ function mail_mailer($email, $ninn, $subj, $msg) {
 	
 	$subject = $subj;
 	
-	$logo = 'https://cose.teagonig.com/home/assets/images/logo.png';
+	$logo = 'https://cose.teagonig.com/home/assets/images/maillogo.png';
 	$url = 'https://cose.teagonig.com/';
 	
 	$body = "
@@ -222,7 +222,7 @@ function mail_mailer($email, $ninn, $subj, $msg) {
 	$body .= "<p text-align: center;'><a href='https://teagonig.com/contact'><img style='width:150px;heght:150px'
 			src='https://cose.teagonig.com/home/assets/images/footer.png'></a>";
 	$body .= "
-	<h4 style='text-align: center;'>Email.: <span style='color: #fff'>hello@cose.teagonig.com</span></h4>";
+	<h4 style='text-align: center; style='color: #fff''>Email.: <span style='color: #fff'>hello@cose.teagonig.com</span></h4>";
 	$body .= "<h4 style='text-align: center;'>Call/Chat.: <span style='color: #fff'>+234(0) 802 276 2696</span>
 	</h4>";
 	$body .= "<h4 style='text-align: center; padding-bottom: 80px; padding-top: 40px;'>Team TEAGO COSE</h4>";    
