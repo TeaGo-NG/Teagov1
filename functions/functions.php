@@ -307,21 +307,21 @@ if(isset($_POST['fgeml'])) {
 		
 	} else {
 
-	$activator = otp();
+	$activator = md5(otp());
+	$ninn = "https://cose.teagonig.com/recover?vef=".$activator;
 
-	$ssl = "UPDATE users SET `activator` = '$activator' WHERE `email` = '$email'";
+	$ssl = "UPDATE user SET `activator` = '$activator' WHERE `email` = '$email'";
 	$rsl = query($ssl);
 
 	//redirect to verify function
 	$subj = "RESET YOUR PASSWORD";
-	$msg  = "Hi there! <br /><br />Kindly use the otp below to restore your password;";
+	$msg  = "Hi there! <br /><br />Kindly use the link below to restore your password;";
 
-	mail_mailer($email, $activator, $subj, $msg);
+	mail_mailer($email, $ninn, $subj, $msg);
 
 	//open otp page
 	echo 'Loading... Please Wait!';
-	$_SESSION['vnext'] = "updatePword();";
-	echo '<script>otpVerify(); signupClose();</script>';
+	echo '<script>verify();</script>';
 
 	}
 }
@@ -331,31 +331,31 @@ if(isset($_POST['fgeml'])) {
 /** RESET PASSWORD **/
 if(isset($_POST['fgpword']) && isset($_POST['fgcpword'])) {
 
-	    $fgpword = md5($_POST['fgpword']);
-        $eml = $_SESSION['usermail'];
+	    $fgpword 	= md5($_POST['fgpword']);
+        $eml 		= $_SESSION['usermail'];
 
-	$sql = "UPDATE users SET `pword` = '$fgpword', `activator` = '' WHERE `email` = '$eml'";
+	$sql = "UPDATE user SET `pword` = '$fgpword', `activator` = '' WHERE `email` = '$eml'";
 	$rsl = query($sql);
 	
 	//get username and redirect to dashboard
-	$ssl = "SELECT * FROM users WHERE `email` =  '$eml'";
+	$ssl = "SELECT * FROM user WHERE `email` =  '$eml'";
 	$rsl = query($ssl);
 	if(row_count($rsl) == '') {
 		
 		echo 'Loading... Please Wait';
-		echo '<script>window.location.href ="./signin"</script>';
+		echo '<script>window.location.href ="./welcome"</script>';
 		
 	} else {
 
 		$row  = mysqli_fetch_array($rsl);
-		$user = $row['usname'];
+		$user = $row['user'];
 
-		$_SESSION['login'] = $user;
+		$_SESSION['user'] = $user;
 		
 		
 		echo 'Loading... Please Wait';
 
-		echo '<script>window.location.href ="./"</script>';
+		echo '<script>window.location.href ="./home"</script>';
 		
 	}
 }

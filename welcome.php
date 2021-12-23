@@ -121,7 +121,8 @@ include("functions/init.php");
                             <div class="form-group form-button">
                                 <input type="button" name="lsignin" id="lsignin" class="form-submit" value="Sign in" />
                             </div>
-                            <a style="cursor: pointer" class="signup-image-link mr-0 ml-0">Forgot Password</a>
+                            <a href="./forgot" style="text-decoration: none;" class="signup-image-link mr-0 ml-0">Forgot
+                                Password</a>
                             &nbsp;&nbsp;
                             |
                             &nbsp;&nbsp; <a style="cursor: pointer" onclick="signup()"
