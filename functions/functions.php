@@ -385,6 +385,16 @@ function user_details() {
 
 	}
 
+	//set default profile picture
+	if($GLOBALS['t_users']['pix'] == '') {
+
+		$GLOBALS['t_users']['pix'] = "assets/images/log.png";
+
+	} else {
+
+		$GLOBALS['t_users']['pix'] = "assets/images/logo.png";
+
+	}
 }
 
 
