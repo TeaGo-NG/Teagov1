@@ -60,6 +60,15 @@ if(!isset($_SESSION['usermail'])) {
     <meta property="og:description" content="TeaGo COSE - Recover Password" />
     <meta name="theme-color" content="#be1e2d">
 
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="home/assets/images/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="home/assets/images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="home/assets/images/logo.png">
+    <link rel="shortcut icon" type="image/x-icon" href="home/assets/images/logo.png">
+    <meta name="msapplication-TileImage" content="home/assets/images/logo.png">
+
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
