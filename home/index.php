@@ -31,14 +31,9 @@ include("components/mobile.php");
         <div class="main-wrapper pt-80">
             <div class="container">
                 <div class="row">
-                    <?php 
-                    include("components/newsfeed/leftsidebar.php"); 
-                    
-                    ?>
+                    <iframe src="components/newsfeed/leftsidebar.php">
 
-
-
-
+                    </iframe>
                 </div>
             </div>
         </div>
