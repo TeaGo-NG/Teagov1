@@ -1,4 +1,4 @@
-<div class="col-lg-12 order-2 order-lg-1">
+<div class="col-lg-3 order-2 order-lg-1">
     <aside class="widget-area">
         <!-- widget single item start -->
         <div class="card card-profile widget-item p-0">
