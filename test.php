@@ -26,7 +26,7 @@ $body = "
 <link rel='stylesheet' href='https://cose.teagonig.com/home/assets/css/vendor/bootstrap.min.css'>
 <body style='text-align: center;'>";
 $body .= "<section style='margin: 30px; margin-top: 50px ; background: #be1e2d; color: #fff;'>";
-$body .= "<img style='margin-top: 35px; width: 460px; height: 105px;' src='{$logo}' alt='TeaGo Cose'>";
+$body .= "<img style='margin-top: 35px; width: 460px; height: 205px;' src='{$logo}' alt='TeaGo Cose'>";
 $body .= "<h1 style='margin-top: 45px; color: #fff'>{$subj}</h1>
 <br />";
 $body .= "<h3 style='margin-left: 45px; margin-top: 34px; text-align: left; font-size: 17px;'>{$msg}</h3>
