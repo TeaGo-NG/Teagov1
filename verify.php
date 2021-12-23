@@ -24,7 +24,7 @@ if(!isset($_SESSION['usermail'])) {
         
     } else {
 
-        $ups = "UPDATE user SET `activator` = '' WHERE `email` = '$usermail'";
+        $ups = "UPDATE user SET `activator` = '', `active` = '1' WHERE `email` = '$usermail'";
         $upq = query($ups);
 
         $_SESSION['user'] = $row['user'];

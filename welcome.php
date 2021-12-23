@@ -80,22 +80,23 @@ include("functions/init.php");
                                 <input type="button" name="signup" id="signup" class="form-submit" value="Register" />
                             </div>
 
-                            <a href="#" class="signup-image-link">I'm already a member</a>
+                            <a style="cursor: pointer" onclick="signin()" class="signup-image-link">I'm already a
+                                member</a>
                         </form>
                     </div>
                     <div class="signup-image">
-                        <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
+                        <figure><img src="images/signup-image.jpg" alt="sign up image"></figure>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Sing in  Form -->
+        <!-- sign in  Form -->
         <section class="sign-in" id="sign-in">
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
-                        <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
+                        <figure><img src="images/signin-image.jpg" alt="sign up image"></figure>
 
                     </div>
 
@@ -104,19 +105,21 @@ include("functions/init.php");
                         <form method=" POST" class="register-form" id="login-form">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="your_name" id="your_name" placeholder="Your Name" />
+                                <input type="text" name="luname" id="luname" placeholder="Your Username" />
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="your_pass" id="your_pass" placeholder="Password" />
+                                <input type="password" name="lpword" id="lpword" placeholder="Password" />
                             </div>
-                            <!--<div class="form-group">
-                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember
-                                    me</label>
-                            </div>-->
+
+                            <div class="form-group">
+                                <b>
+                                    <p class="signup-image-link" style="color: #be1e2d" id="lmsg"></p>
+                                </b>
+                            </div>
+
                             <div class="form-group form-button">
-                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
+                                <input type="button" name="lsignin" id="lsignin" class="form-submit" value="Sign in" />
                             </div>
                             <a style="cursor: pointer" class="signup-image-link mr-0 ml-0">Forgot Password</a>
                             &nbsp;&nbsp;
@@ -143,7 +146,7 @@ include("functions/init.php");
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
-                        <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
+                        <figure><img src="images/signin-image.jpg" alt="sign up image"></figure>
 
                     </div>
 
@@ -171,6 +174,12 @@ include("functions/init.php");
 function signup() {
     document.getElementById('signup').style.display = 'block';
     document.getElementById('sign-in').style.display = 'none';
+
+}
+
+function signin() {
+    document.getElementById('signup').style.display = 'none';
+    document.getElementById('sign-in').style.display = 'block';
 
 }
 

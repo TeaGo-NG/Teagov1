@@ -52,59 +52,9 @@ $(document).ready(function () {
   
   
   
-  //resend otp
-  $("#rotp").click(function () {
-  
-    document.getElementById("rvmsg").style.display = 'block';
-    document.getElementById("vmsg").style.display = 'none';
-  
-    //I left this code so as to give a dummy text to the function validator
-    var otpp  = $("#otpp").val();
-  
-    if (otpp == "" || otpp == null) {
-      $("#rvmsg").html("Invalid OTP!");
-    } else {
-  
-      $("#rvmsg").html("Loading... Please wait");
-  
-      $.ajax({
-        type: "post",
-        url: "functions/init.php",
-        data: {otpp: otpp},
-        success: function (data) {
-          $("#rvmsg").html(data);
-        },
-      });
-    }
-  })
-  
-  
-  //verify otp
-  $("#vsub").click(function () {
-  
-     var votp   = $("#otpper").val();
-  
-    document.getElementById("rvmsg").style.display = 'none';
-    document.getElementById("vmsg").style.display = 'block';
-  
-        if (votp == "" || votp == null) {
-        $("#vmsg").html("Invalid OTP!");
-      } else {
-      $("#vmsg").html("Loading... Please Wait");
-      $.ajax({
-        type: "post",
-        url: "functions/init.php",
-        data: {votp: votp},
-        success: function (data) {
-          $("#vmsg").html(data);
-        },
-      });
-    }
-  })
-  
   
     //signin
-    $("#lsub").click(function () {
+    $("#lsignin").click(function () {
       var username = $("#luname").val();
       var password = $("#lpword").val();
   

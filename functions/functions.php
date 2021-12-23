@@ -167,7 +167,7 @@ function register($fname, $email, $uname, $pword) {
 
 	//redirect to verify function
 	$subj = "VERIFY YOUR EMAIL";
-	$msg  = "Hi there! <br /><br />Kindly use the link below to activate your account;";
+	$msg  = "Hi there! <br /><br />Kindly use the button below to activate your account;";
 	$ninn = "https://cose.teagonig.com/verify?vef=".$activator;
 
 	mail_mailer($email, $ninn, $subj, $msg);
@@ -232,128 +232,52 @@ function mail_mailer($email, $ninn, $subj, $msg) {
 }
 
 
-/** RESEND OTP */
-if(isset($_POST['otpp'])) {
-
-	$otpp = clean(escape($_POST['otpp']));
-	
-	$email = $_SESSION['usermail'];
-	
-	$activator = otp();	
-
-	$sql = "UPDATE users SET `activator` = '$activator'  WHERE `email` = '$email'";
-	$res = query($sql);
-
-	if($otpp == 100) {
-
-	$subj = "VERIFY YOUR EMAIL";
-	$msg  = "Hi there! <br /><br />Kindly use the otp below to activate your account;";	
-	} else{
-	
-		$subj = "RESET YOUR PASSWORD";
-		$msg  = "Hi there! <br /><br />Kindly use the otp below to restore your password;";		
-
-	}
-
-	mail_mailer($email, $activator, $subj, $msg);
-	echo "New OTP Code sent to your email";
-}
-
-
-/**Activate OTP ACCOUNT */
-if(isset($_POST['votp'])) {
-
-	$email = $_SESSION['usermail'];
-	$veotp = clean(escape($_POST['votp']));
-
-	$otp   = $_SESSION['otp'];
-
-	//select otp from db and confirm with session
-	if($veotp != $otp) {
-
-		echo "Invalid OTP Code!";
-		
-	} else {
-
-	//update database and login
-	$sql = "UPDATE users SET `activator` = '', `active` = '1' WHERE `email` = '$email'";
-	$res = query($sql);
-
-	//get username and redirect to dashboard
-	$ssl = "SELECT * FROM users WHERE `email` =  '$email'";
-	$rsl = query($ssl);
-	if(row_count($rsl) == '') {
-		
-		echo 'Loading... Please Wait';
-		echo '<script>window.location.href ="./signin"</script>';
-		
-	} else {
-
-		$row  = mysqli_fetch_array($rsl);
-		$user = $row['usname'];
-
-		$_SESSION['login'] = $user;
-		
-		
-		echo 'Loading... Please Wait';
-
-		if(!isset($_SESSION['vnext'])) {
-		echo '<script>window.location.href ="./"</script>';
-		} else {
-			$data = $_SESSION['vnext'];
-			echo '<script>'.$data.'</script>';
-		}
-	}
-	}
-
-}
-
 /** SIGN IN USER **/
  	if(isset($_POST['username']) && isset($_POST['password'])) {
 
 			$username        = clean(escape($_POST['username']));
 			$password   	 = md5($_POST['password']);
 
-			$sql = "SELECT * FROM `users` WHERE `usname` = '$username' AND `pword` = '$password'";
+			$sql = "SELECT * FROM `user` WHERE `user` = '$username' AND `pword` = '$password'";
 			$result = query($sql);
 			if(row_count($result) == 1) {
 
 				$row 	    = mysqli_fetch_array($result);
 				
-				$user 		= $row['usname'];
+				$user 		= $row['user'];
 				$active 	= $row['active'];
 				$email 		= $row['email'];
 				$activate 	= $row['activator'];
 
-				if ($active == 0 || $activate != '') {
+				if ($active == 0) {
 
-					$activator = otp();
+					$ninn = md5(otp());
 
 					$_SESSION['usermail'] = $email;
 
 					//update activation link
-					$ups = "UPDATE users SET `activator` = '$activate' WHERE `usname` = '$username'";
+					$ups = "UPDATE users SET `activator` = '$ninn' WHERE `user` = '$username'";
 					$ues = query($ups);
 
 					$subj = "VERIFY YOUR EMAIL";
-					$msg  = "Hi there! <br /><br />Kindly use the otp below to activate your account;";
+					$msg  = "Hi there! <br /><br />Kindly use the button below to activate your account;";
 
-					mail_mailer($email, $activator, $subj, $msg);
+					mail_mailer($email, $ninn, $subj, $msg);
 
-					//open otp page
+					//open verification page
 					echo 'Loading... Please Wait!';
-					echo '<script>otpVerify(); signupClose();</script>';
+					echo '<script>verify();</script>';
 	
 					
 				}  else {
 
 					if($username == $user) {
 						
-						$_SESSION['login'] = $username;
+						$_SESSION['user'] = $username;
 
 						echo 'Loading... Please Wait';	
 
-						echo '<script>window.location.href ="./"</script>';	
+						echo '<script>window.location.href ="./home"</script>';	
 					} else {
 
 						echo "This username doesn't have an account.";
