@@ -251,12 +251,14 @@ function mail_mailer($email, $ninn, $subj, $msg) {
 
 				if ($active == 0) {
 
-					$ninn = md5(otp());
+					$vnt = md5(otp());
+
+					$ninn = "https://cose.teagonig.com/verify?vef=".$vnt;
 
 					$_SESSION['usermail'] = $email;
 
 					//update activation link
-					$ups = "UPDATE users SET `activator` = '$ninn' WHERE `user` = '$username'";
+					$ups = "UPDATE user SET `activator` = '$vnt' WHERE `user` = '$username'";
 					$ues = query($ups);
 
 					$subj = "VERIFY YOUR EMAIL";
@@ -287,7 +289,7 @@ function mail_mailer($email, $ninn, $subj, $msg) {
 
 		}  else {
 			
-			echo '<script>window.location.href ="./forgot"</script>';
+			echo "Wrong Password Inputted";
 		}
 	}
 
