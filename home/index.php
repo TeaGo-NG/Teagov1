@@ -34,7 +34,11 @@ include("components/mobile.php");
 
 
 
-                    <?php include("components/newsfeed/leftsidebar.php") ?>
+                    <?php 
+                    include("components/newsfeed/leftsidebar.php"); 
+                    include("components/newsfeed/center.php"); 
+                    include("components/newsfeed/rightsidebar.php"); 
+                    ?>
 
 
                 </div>

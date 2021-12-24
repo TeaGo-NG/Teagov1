@@ -5,7 +5,7 @@
             <div class="profile-banner">
                 <figure class="profile-banner-small">
                     <a href="./profile">
-                        <img src=" <?php echo $cover; ?>" width="400px;" height="200px"
+                        <img src=" <?php echo $cover; ?>" width="400px;" height="180px"
                             alt="<?php echo $t_users['user']; ?>">
                     </a>
                     <a href="./" class="profile-thumb-2">
@@ -30,7 +30,7 @@
         <!-- widget single item start -->
         <div class="card widget-item">
             <h4 class="widget-title">latest top news</h4>
-            <div class="widget-body">
+            <div class="widget-body scrollable">
                 <ul class="like-page-list-wrapper">
                     <li class="unorder-list">
                         <!-- profile picture end -->
@@ -50,32 +50,10 @@
                         </div>
                     </li>
 
+
                 </ul>
             </div>
         </div>
         <!-- widget single item end -->
-
-
-
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title widget-title">latest top news</h5>
-                <div class="scrollable">
-                    <p class="card-text">This portion and only this portion will have a very long text so
-                        much so that the vertical scroll bar may appear when required. Lorem ipsum dolor sit
-                        amet, consectetur adipiscing elit. Etiam congue neque et sollicitudin blandit.
-                        Vivamus vestibulum
-                        sed mauris a volutpat. Etiam quis arcu dictum, scelerisque ex sit amet, egestas
-                        eros. Sed convallis consectetur mauris, at fringilla mi gravida eu. Vivamus eu
-                        sagittis nulla. Vestibulum lobortis pretium metus, ut mattis libero aliquet ut. Sed
-                        facilisis elementum dolor. Suspendisse euismod nunc malesuada, laoreet lectus
-                        egestas, auctor ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                        egestas odio nec ex suscipit vestibulum. Class aptent taciti sociosqu ad litora
-                        torquent
-                        per conubia nostra, per inceptos himenaeos. Nunc bibendum turpis eget erat volutpat,
-                        vel. </p>
-                </div>
-            </div>
-        </div>
     </aside>
 </div>

@@ -196,8 +196,8 @@
                      <!-- brand logo start -->
                      <div class="brand-logo text-center">
                          <a href="./">
-                             <img style="width: 50px; height: 50px" src="assets/images/log.png" class="img-rounded"
-                                 alt="TeaGo COSE">
+                             <img style="width: 50px; height: 50px; z-index: 9999" src="assets/images/log.png"
+                                 class="img-rounded" alt="TeaGo COSE">
                          </a>
                      </div>
                      <!-- brand logo end -->

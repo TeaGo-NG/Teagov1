@@ -210,7 +210,7 @@ function mail_mailer($email, $ninn, $subj, $msg) {
 	<link rel='stylesheet' href='https://cose.teagonig.com/home/assets/css/vendor/bootstrap.min.css'>
 	<body style='text-align: center;'>";
 	$body .= "<section style='margin: 30px; margin-top: 50px ; background: #be1e2d; color: #fff;'>";
-	$body .= "<img style='margin-top: 35px; width: 460px; height: 205px;' src='{$logo}' alt='TeaGo Cose'>";
+	$body .= "<img style='margin-top: 35px; width: 460px; height: 105px;' src='{$logo}' alt='TeaGo Cose'>";
 	$body .= "<h1 style='margin-top: 45px; color: #fff'>{$subj}</h1>
 	<br />";
 	$body .= "<h3 style='margin-left: 45px; margin-top: 34px; text-align: left; font-size: 17px;'>{$msg}</h3>
@@ -407,7 +407,95 @@ function user_details() {
 		$GLOBALS['cover'] = $GLOBALS['t_users']['cover'];
 
 	}
+
+	//get lastseen
+	$date = $GLOBALS['t_users']['lstseen'];
+	$GLOBALS['lst'] = timediffrnce($date);
 }
+
+
+//time difference function
+function timediffrnce($date) {
+ 
+	//if you leave this it takes your current timezone
+	$userTimezone = "Africa/Lagos";
+	$timezone = new DateTimeZone( $userTimezone );
+	 
+	$crrentSysDate = new DateTime(date('m/d/y h:i:s a'),$timezone);
+	$userDefineDate = $crrentSysDate->format('m/d/y h:i:s a');
+	 
+	$start = date_create($userDefineDate,$timezone);
+	$end = date_create(date('m/d/y h:i:s a', strtotime($dateposted)),$timezone);
+	 
+	$diff=date_diff($start,$end);
+	
+	$year 		 = $diff->y;
+	$month       = $diff->m;
+	$days 		 = $diff->d;
+	$hours		 = $diff->h;
+	$minutes	 = $diff->i;
+	$seconds 	 = $diff->s;
+	
+	
+	 
+	if($seconds < 60 && $minutes == 0 && $hours == 0 && $days == 0 && $month == 0 && $year == 0) {
+	
+		echo "Just now";
+	
+	} else {
+	
+	if($minutes < 60 && $hours == 0 && $days == 0 && $month == 0 && $year == 0) {
+	
+		echo $minutes." minutes ago";
+	
+	} else {
+	
+	if($hours < 24 && $days == 0 && $month == 0 && $year == 0){
+		
+		if($hours == 1) {
+			echo $hours." hour ago";
+		} else {
+			echo $hours." hours ago";
+		}
+		
+	} else {
+	
+	if($days != 0 && $month == 0 && $year == 0) {
+	
+		if($days == 1) {
+			echo $days." day ago";
+		} else {
+			echo $days." days ago";
+		}
+	
+	} else {
+	
+	if($month != 0 && $year == 0) {
+	
+		if($month == 1) {
+			echo $month." month ago";
+		} else {
+			echo $month." months ago";
+		}
+		
+		
+	} else {
+	
+	if($year != 0) {
+	
+		if($year == 1) {
+			echo $year." year ago";
+		} else {
+			echo $year." years ago";
+		}
+		
+	}
+	}
+	}
+	}
+	}
+	}
+	}
 
 
 

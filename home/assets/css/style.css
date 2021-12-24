@@ -183,7 +183,7 @@ textarea:focus {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: red;
+  background: #be1e2d;
   border-radius: 10px;
 }
 
@@ -1276,7 +1276,6 @@ textarea:focus {
   width: 80px;
   height: 100%;
   text-align: center;
-  background-color: #dc4734;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
