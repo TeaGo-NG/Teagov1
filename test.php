@@ -12,7 +12,7 @@ $headers .= "Importance: High\n";
 
 $subject = $subj;
 
-$logo = 'https://cose.teagonig.com/home/assets/images/logo.png';
+$logo = 'https://cose.teagonig.com/home/assets/images/maillogo.png';
 $url = 'https://cose.teagonig.com/';
 
 $body = "

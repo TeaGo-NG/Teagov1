@@ -43,7 +43,7 @@
                         </div>
                         <!-- profile picture end -->
 
-                        <div class="unorder-list-info">
+                        <div class="unorder-list-info ">
                             <h3 class="list-title"><a href="#">Any one can join with us if you
                                     want</a></h3>
                             <p class="list-subtitle">2 min ago</p>
@@ -54,5 +54,28 @@
             </div>
         </div>
         <!-- widget single item end -->
+
+
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title widget-title">latest top news</h5>
+                <div class="scrollable">
+                    <p class="card-text">This portion and only this portion will have a very long text so
+                        much so that the vertical scroll bar may appear when required. Lorem ipsum dolor sit
+                        amet, consectetur adipiscing elit. Etiam congue neque et sollicitudin blandit.
+                        Vivamus vestibulum
+                        sed mauris a volutpat. Etiam quis arcu dictum, scelerisque ex sit amet, egestas
+                        eros. Sed convallis consectetur mauris, at fringilla mi gravida eu. Vivamus eu
+                        sagittis nulla. Vestibulum lobortis pretium metus, ut mattis libero aliquet ut. Sed
+                        facilisis elementum dolor. Suspendisse euismod nunc malesuada, laoreet lectus
+                        egestas, auctor ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                        egestas odio nec ex suscipit vestibulum. Class aptent taciti sociosqu ad litora
+                        torquent
+                        per conubia nostra, per inceptos himenaeos. Nunc bibendum turpis eget erat volutpat,
+                        vel. </p>
+                </div>
+            </div>
+        </div>
     </aside>
 </div>
