@@ -5,10 +5,4 @@ RewriteRule ^(.*)$ $1.html [NC,L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
-RewriteRule ^(.*)$ $1.php [NC,L] 
-
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^home/$ newsfeed [NC,L]
-RewriteRule ^home/profile$ profile [NC,L] 
+RewriteRule ^(.*)$ $1.php [NC,L]  
