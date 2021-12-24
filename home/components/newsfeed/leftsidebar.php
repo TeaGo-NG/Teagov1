@@ -42,6 +42,7 @@ $res = query($sql);
 
 while($row = mysqli_fetch_array($res)) {
 
+    $date = $row['dateposted'];
 
 ?>
 
