@@ -48,6 +48,8 @@
     <link rel="stylesheet" href="assets/css/vendor/bicon.min.css">
     <!-- Flat Icon CSS -->
     <link rel="stylesheet" href="assets/css/vendor/flaticon.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
     <!-- audio & video player CSS -->
     <link rel="stylesheet" href="assets/css/plugins/plyr.css">
     <!-- Slick CSS -->

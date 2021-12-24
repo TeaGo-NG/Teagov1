@@ -64,6 +64,8 @@ include("components/mobile.php");
     <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <!-- font awesome JS -->
+    <script src="assets/js/fontawesome.min.js"></script>
     <!-- Slick Slider JS -->
     <script src="assets/js/plugins/slick.min.js"></script>
     <!-- nice select JS -->

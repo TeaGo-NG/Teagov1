@@ -1,5 +1,5 @@
 <?php
-$to = $email;
+/*$to = $email;
 $from = "noreply@cose.teagonig.com";
 
 $headers = "From: " . $from . "\r\n";
@@ -47,9 +47,9 @@ $body .= "</section>";
 $body .= "</body></html>";
 $send = mail($to, $subject, $body, $headers);
 
-//echo $body;
+//echo $body;*/
 
-$dateposted = "10/20/19 10:20:35pm";
+$dateposted = "2021-12-23 10:50:12pm";
 
 function timediffrnce($dateposted) {
  
