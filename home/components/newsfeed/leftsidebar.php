@@ -13,8 +13,9 @@
                     </a>
                 </figure>
                 <div class="profile-desc text-center">
-                    <h6 class="author"><a href="./profile">Welcome
-                            <?php echo $t_users['user']; ?> <i style="color: red;" class="fa-star-half-alt"></i></a>
+                    <h6 class="author"><a style="text-decoration: none;" href="./profile">Welcome
+                            <?php echo $t_users['user']; ?> <i style="color: red; font-weight: 0"
+                                class="bi bi-tick"></i></a>
                     </h6>
                     <p>Last seen:
                         <?php echo timediffrnce(); ?>
@@ -30,14 +31,14 @@
 
         <!-- widget single item start -->
         <div class="card widget-item">
-            <h4 class="widget-title">latest News</h4>
+            <h4 class="widget-title">latest Gist</h4>
             <div class="widget-body scrollable">
 
 
                 <ul class="like-page-list-wrapper">
                     <?php
 
-$sql = "SELECT * FROM article ORDER BY `sn` desc LIMIT 10";
+$sql = "SELECT * FROM article ORDER BY RAND() desc LIMIT 10";
 $res = query($sql);
 
 while($row = mysqli_fetch_array($res)) {
@@ -61,7 +62,7 @@ while($row = mysqli_fetch_array($res)) {
                             <h3 class="list-title"><a
                                     href="./read/<?php echo $row['title'] ?>"><?php echo $row['title'] ?></a>
                             </h3>
-                            <p class="list-subtitle">2 min ago</p>
+                            <p class=""><?php echo psttdff($date); ?></p>
                         </div>
                     </li>
 

@@ -10,15 +10,14 @@
                         <div class="profile-thumb">
                             <a href="#">
                                 <figure class="profile-thumb-small">
-                                    <img src="assets/images/profile/profile-35x35-9.jpg" alt="profile picture">
+                                    <img src="<?php echo $pix; ?>" alt="<?php echo $t_users['user']; ?>">
                                 </figure>
                             </a>
                         </div>
                         <!-- profile picture end -->
 
                         <div class="unorder-list-info">
-                            <h3 class="list-title"><a href="#">Any one can join with us if you
-                                    want</a></h3>
+                            <h3 class="list-title"><a href="#">We are working hard to unlock this feature</a></h3>
                             <p class="list-subtitle">5 min ago</p>
                         </div>
                     </li>
@@ -26,16 +25,49 @@
             </div>
         </div>
         <!-- widget single item end -->
-
         <!-- widget single item start -->
         <div class="card widget-item">
-            <h4 class="widget-title">Advertizement</h4>
-            <div class="widget-body">
-                <div class="add-thumb">
-                    <a href="#">
-                        <img src="assets/images/banner/advertise.jpg" alt="advertisement">
-                    </a>
-                </div>
+            <h4 class="widget-title">Trending Gist</h4>
+            <div class="widget-body scrollable">
+
+
+                <ul class="like-page-list-wrapper">
+                    <?php
+
+$sql = "SELECT * FROM article WHERE `react` BETWEEN 100 AND 9000000000000000 ORDER BY `react` desc LIMIT 10";
+$res = query($sql);
+
+while($row = mysqli_fetch_array($res)) {
+
+    $date = $row['dateposted'];
+
+?>
+
+                    <li class="unorder-list">
+                        <!-- profile picture end -->
+                        <div class="profile-thumb">
+
+                            <a href="./<?php echo $row['user'] ?>">
+                                <figure class="profile-thumb-small">
+                                    <img src="<?php echo $row['uspix'] ?>" alt="<?php echo $row['user'] ?>">
+                                </figure>
+                            </a>
+                        </div>
+                        <!-- profile picture end -->
+
+                        <div class="unorder-list-info ">
+                            <h3 class="list-title"><a
+                                    href="./read/<?php echo $row['title'] ?>"><?php echo $row['title'] ?></a>
+                            </h3>
+                            <p class=""><?php echo psttdff($date); ?></p>
+                        </div>
+                    </li>
+
+                    <?php
+                }
+                ?>
+
+                </ul>
             </div>
         </div>
         <!-- widget single item end -->

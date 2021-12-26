@@ -512,7 +512,7 @@ $userDefineDate = $crrentSysDate->format('m/d/y h:i:s a');
 $start = date_create($userDefineDate,$timezone);
 $end = date_create(date('m/d/y h:i:s a', strtotime($date)),$timezone);
  
-$diff=date_diff($start,$end);
+$diff = date_diff($start,$end);
 
 $year 		 = $diff->y;
 $month       = $diff->m;

@@ -211,6 +211,7 @@ list-type-ulli,
   /* Legacy iOS */
 }
 a:focus,
+a:hover,
 a:active {
   text-decoration: none;
   outline: none;

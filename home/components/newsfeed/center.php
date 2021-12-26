@@ -47,107 +47,110 @@
         </div>
     </div>
     <!-- share box end -->
-    <!-- post status start -->
-    <div class="card">
-        <!-- post title start -->
-        <div class="post-title d-flex align-items-center">
-            <!-- profile picture end -->
-            <div class="profile-thumb">
-                <a href="#">
-                    <figure class="profile-thumb-middle">
-                        <img src="assets/images/profile/profile-small-37.jpg" alt="profile picture">
-                    </figure>
-                </a>
-            </div>
-            <!-- profile picture end -->
 
-            <div class="posted-author">
-                <h6 class="author"><a href="profile.html">Kate Palson</a></h6>
-                <span class="post-time">35 min ago</span>
-            </div>
+    <div class="scrollable bg-transparent">
 
-            <div class="post-settings-bar">
-                <span></span>
-                <span></span>
-                <span></span>
-                <div class="post-settings arrow-shape">
-                    <ul>
-                        <li><button>copy link to adda</button></li>
-                        <li><button>edit post</button></li>
-                        <li><button>embed adda</button></li>
+        <?php
+
+$sql = "SELECT * FROM article ORDER BY RAND() desc LIMIT 10";
+$res = query($sql);
+
+while($row = mysqli_fetch_array($res)) {
+
+    $date = $row['dateposted'];
+
+
+
+    ?>
+
+        <!-- post status start -->
+        <div class="card">
+            <!-- post title start -->
+            <div class="post-title d-flex align-items-center">
+                <!-- profile picture end -->
+                <div class="profile-thumb">
+                    <a href="#">
+                        <figure class="profile-thumb-middle">
+                            <img src="<?php echo $row['uspix'] ?>" alt="<?php echo $row['user'] ?>">
+                        </figure>
+                    </a>
+                </div>
+                <!-- profile picture end -->
+
+                <div class="posted-author">
+                    <h6 class="author"><a style="text-decoration: none"
+                            href="./<?php echo $row['user'] ?>"><?php echo $row['user'] ?></a></h6>
+                    <span class="post-time"><?php echo psttdff($date); ?></span>
+                </div>
+
+
+            </div>
+            <!-- post title start -->
+            <div class="post-content">
+                <b>
+                    <p class="post-desc">
+                        <?php echo ucwords($row['title']) ?>
+                    </p>
+                </b>
+                <p class="post-desc">
+                    <?php echo $row['post'] ?>
+                </p>
+                <?php 
+
+                if($row['pix'] == null) {
+
+
+                } else {
+
+                echo '
+
+                <div class="post-thumb-gallery img-gallery">
+                <div class="row no-gutters">
+                    <div class="col-12">
+                        <figure class="post-thumb">
+                            <a class="gallery-selector" href="assets/images/post/post-1.jpg">
+                                <img src="assets/images/post/post-1.jpg" width="510px" height="270px" alt="post image">
+                            </a>
+                        </figure>
+                    </div>
+
+                </div>
+                </div>';
+                }
+
+                ?>
+
+                <div class="post-meta">
+                    <button class="post-meta-like">
+                        <i class="bi bi-love"></i>
+                        <span>You and 70 people like this</span>
+                        <strong>70</strong>
+                    </button>
+                    <ul class="comment-share-meta">
+                        <li>
+                            <button class="post-comment">
+                                <i class="bi bi-chat-bubble"></i>
+                                <span>28</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-share">
+                                <i class="bi bi-share"></i>
+                                <span>12</span>
+                            </button>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <!-- post title start -->
-        <div class="post-content">
-            <p class="post-desc">
-                Many desktop publishing packages and web page editors now use Lorem Ipsum as their
-                default model text, and a search for 'lorem ipsum' will uncover many web sites still
-                in their infancy.
-            </p>
-            <div class="post-thumb-gallery img-gallery">
-                <div class="row no-gutters">
-                    <div class="col-8">
-                        <figure class="post-thumb">
-                            <a class="gallery-selector" href="assets/images/post/post-2.jpg">
-                                <img src="assets/images/post/post-2.jpg" alt="post image">
-                            </a>
-                        </figure>
-                    </div>
-                    <div class="col-4">
-                        <div class="row">
-                            <div class="col-12">
-                                <figure class="post-thumb">
-                                    <a class="gallery-selector" href="assets/images/post/post-3.jpg">
-                                        <img src="assets/images/post/post-3.jpg" alt="post image">
-                                    </a>
-                                </figure>
-                            </div>
-                            <div class="col-12">
-                                <figure class="post-thumb">
-                                    <a class="gallery-selector" href="assets/images/post/post-4.jpg">
-                                        <img src="assets/images/post/post-4.jpg" alt="post image">
-                                    </a>
-                                </figure>
-                            </div>
-                            <div class="col-12">
-                                <figure class="post-thumb">
-                                    <a class="gallery-selector" href="assets/images/post/post-5.jpg">
-                                        <img src="assets/images/post/post-5.jpg" alt="post image">
-                                    </a>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="post-meta">
-                <button class="post-meta-like">
-                    <i class="bi bi-heart-beat"></i>
-                    <span>You and 70 people like this</span>
-                    <strong>70</strong>
-                </button>
-                <ul class="comment-share-meta">
-                    <li>
-                        <button class="post-comment">
-                            <i class="bi bi-chat-bubble"></i>
-                            <span>28</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="post-share">
-                            <i class="bi bi-share"></i>
-                            <span>12</span>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <!-- post status end -->
+
+        <?php
+}
+?>
+
+
     </div>
-    <!-- post status end -->
-
-
 
 
 </div>

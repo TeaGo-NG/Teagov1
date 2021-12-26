@@ -167,7 +167,7 @@ textarea:focus {
 
 .scrollable {
   overflow-y: auto;
-  max-height: 300px;
+  max-height: 100vh;
 }
 
 /* width */
