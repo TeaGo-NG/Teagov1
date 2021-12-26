@@ -394,6 +394,16 @@ function user_details() {
 
 	}
 
+	//give verified users a tick on their username
+	if($GLOBALS['t_users']['verification'] == 1) {
+
+		$GLOBALS['user'] = $GLOBALS['t_users']['user']."  <i style='color: red;' class='bi bi-tick'></i>";
+		
+	} else {
+
+		$GLOBALS['user'] = $GLOBALS['t_users']['user'];
+	}
+
 
 	//set default cover picture
 	if($GLOBALS['t_users']['cover'] == '') {

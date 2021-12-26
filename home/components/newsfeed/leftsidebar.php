@@ -5,17 +5,15 @@
             <div class="profile-banner">
                 <figure class="profile-banner-small">
                     <a href="./profile">
-                        <img src=" <?php echo $cover; ?>" width="400px;" height="180px"
-                            alt="<?php echo $t_users['user']; ?>">
+                        <img src=" <?php echo $cover; ?>" width="400px;" height="180px" alt="<?php echo $user; ?>">
                     </a>
                     <a href="./" class="profile-thumb-2">
-                        <img src="<?php echo $pix; ?>" alt="<?php echo $t_users['user']; ?>">
+                        <img src="<?php echo $pix; ?>" alt="<?php echo $user; ?>">
                     </a>
                 </figure>
                 <div class="profile-desc text-center">
                     <h6 class="author"><a style="text-decoration: none;" href="./profile">Welcome
-                            <?php echo $t_users['user']; ?> <i style="color: red; font-weight: 0"
-                                class="bi bi-tick"></i></a>
+                            <?php echo $user; ?></a>
                     </h6>
                     <p>Last seen:
                         <?php echo timediffrnce(); ?>

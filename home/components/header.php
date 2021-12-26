@@ -21,8 +21,7 @@
                                                  <!-- profile picture end -->
                                                  <div class="profile-thumb">
                                                      <figure class="profile-thumb-middle">
-                                                         <img src=" <?php echo $pix; ?>"
-                                                             alt="<?php echo $t_users['user']; ?>">
+                                                         <img src=" <?php echo $pix; ?>" alt="<?php echo $user; ?>">
                                                      </figure>
                                                  </div>
                                                  <!-- profile picture end -->
@@ -60,8 +59,7 @@
                                                  <!-- profile picture end -->
                                                  <div class="profile-thumb">
                                                      <figure class="profile-thumb-middle">
-                                                         <img src="<?php echo $pix; ?>"
-                                                             alt="<?php echo $t_users['user']; ?>">
+                                                         <img src="<?php echo $pix; ?>" alt="<?php echo $user; ?>">
                                                      </figure>
                                                  </div>
                                                  <!-- profile picture end -->
@@ -122,12 +120,12 @@
                              <div class="profile-thumb-small">
                                  <a href="javascript:void(0)" class="profile-triger">
                                      <figure>
-                                         <img src="<?php echo $pix; ?>" alt="<?php echo $t_users['user']; ?>">
+                                         <img src="<?php echo $pix; ?>" alt="<?php echo $user; ?>">
                                      </figure>
                                  </a>
                                  <div class="profile-dropdown">
                                      <div class="profile-head">
-                                         <h5 class="name"><a href="#"><?php echo $t_users['user']; ?></a></h5>
+                                         <h5 class="name"><a href="#"><?php echo $user; ?></a></h5>
                                          <a class="mail" href="#"><?php echo $t_users['email']; ?></a>
                                      </div>
                                      <div class="profile-body">

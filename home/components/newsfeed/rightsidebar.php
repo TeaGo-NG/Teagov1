@@ -10,7 +10,7 @@
                         <div class="profile-thumb">
                             <a href="#">
                                 <figure class="profile-thumb-small">
-                                    <img src="<?php echo $pix; ?>" alt="<?php echo $t_users['user']; ?>">
+                                    <img src="<?php echo $pix; ?>" alt="<?php echo $user; ?>">
                                 </figure>
                             </a>
                         </div>

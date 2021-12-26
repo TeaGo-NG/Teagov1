@@ -16,7 +16,7 @@
                             <div class="frnd-request-member">
                                 <figure class="request-thumb">
                                     <a href="./profile">
-                                        <img src="<?php echo $pix; ?>" alt="<?php echo $t_users['user']; ?>">
+                                        <img src="<?php echo $pix; ?>" alt="<?php echo $user; ?>">
                                     </a>
                                 </figure>
                                 <div class="frnd-content">
@@ -120,12 +120,12 @@
             <div class="profile-thumb profile-setting-box">
                 <a href="javascript:void(0)" class="profile-triger">
                     <figure class="profile-thumb-middle">
-                        <img src="<?php echo $pix; ?>" alt="<?php echo $t_users['user']; ?>">
+                        <img src="<?php echo $pix; ?>" alt="<?php echo $user; ?>">
                     </figure>
                 </a>
                 <div class="profile-dropdown text-left">
                     <div class="profile-head">
-                        <h5 class="name"><a href="#"><?php echo $t_users['user']; ?></a></h5>
+                        <h5 class="name"><a href="#"><?php echo $user; ?></a></h5>
                         <a class="mail" href="#"><?php echo $t_users['email']; ?></a>
                     </div>
                     <div class="profile-body">
