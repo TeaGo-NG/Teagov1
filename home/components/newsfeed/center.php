@@ -6,7 +6,7 @@
             <div class="profile-thumb">
                 <a href="#">
                     <figure class="profile-thumb-middle">
-                        <img src="<?php echo $pix; ?>" alt="<?php echo $user; ?>">
+                        <img src="<?php echo $pix; ?>" alt="<?php echo $t_users['user']; ?>">
                     </figure>
                 </a>
             </div>
@@ -15,9 +15,8 @@
             <!-- share content box start -->
             <div class="share-content-box w-100">
                 <form class="share-text-box">
-                    <textarea name="share" class="share-text-field" aria-disabled="true" placeholder="Say Something"
+                    <textarea name="share" class="share-text-field" aria-disabled="true" placeholder="Share a gist"
                         data-toggle="modal" data-target="#textbox" id="email"></textarea>
-                    <button class="btn-share" type="submit">share</button>
                 </form>
             </div>
             <!-- share content box end -->
@@ -27,10 +26,13 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Share Your Mood</h5>
+                            <h5 class="modal-title">Share Your Gist</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
+                        </div>
+                        <div class="modal-body custom-scroll">
+                            <input type="text" class="form-control custom-scroll">
                         </div>
                         <div class="modal-body custom-scroll">
                             <textarea name="share" class="share-field-big custom-scroll"
@@ -87,14 +89,16 @@ while($row = mysqli_fetch_array($res)) {
             </div>
             <!-- post title start -->
             <div class="post-content">
-                <b>
+                <a href="./<?php echo $row['articleurl'] ?>" class="text-dark">
+                    <b>
+                        <p class="post-desc">
+                            <?php echo ucwords($row['title']) ?>
+                        </p>
+                    </b>
                     <p class="post-desc">
-                        <?php echo ucwords($row['title']) ?>
+                        <?php echo $row['post'] ?>
                     </p>
-                </b>
-                <p class="post-desc">
-                    <?php echo $row['post'] ?>
-                </p>
+                </a>
                 <?php 
 
                 if($row['pix'] == null) {
@@ -123,20 +127,17 @@ while($row = mysqli_fetch_array($res)) {
                 <div class="post-meta">
                     <button class="post-meta-like">
                         <i class="bi bi-love"></i>
-                        <span>You and 70 people like this</span>
-                        <strong>70</strong>
-                    </button>
+                        <span><?php echo number_format($row['react']) ?></span> </button>
                     <ul class="comment-share-meta">
                         <li>
                             <button class="post-comment">
                                 <i class="bi bi-chat-bubble"></i>
-                                <span>28</span>
+                                <span><?php echo number_format($row['comment']) ?></span>
                             </button>
                         </li>
                         <li>
                             <button class="post-share">
                                 <i class="bi bi-share"></i>
-                                <span>12</span>
                             </button>
                         </li>
                     </ul>
