@@ -32,15 +32,16 @@
                             </button>
                         </div>
                         <div class="modal-body custom-scroll">
-                            <input type="text" class="form-control custom-scroll">
+                            <input type="text" class="form-control custom-scroll" id="title"
+                                placeholder="Input your gist title">
                         </div>
-                        <div class="modal-body custom-scroll">
-                            <textarea name="share" class="share-field-big custom-scroll"
-                                placeholder="Say Something"></textarea>
+                        <div class=" modal-body custom-scroll">
+                            <textarea name="share" class="share-field-big custom-scroll" id="gist"
+                                placeholder="Tell us your gist"></textarea>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="post-share-btn" data-dismiss="modal">cancel</button>
-                            <button type="button" class="post-share-btn">post</button>
+                            <button type="submit" id="pst" class=" post-share-btn">post</button>
                         </div>
                     </div>
                 </div>
@@ -155,3 +156,6 @@ while($row = mysqli_fetch_array($res)) {
 
 
 </div>
+<!-- jQuery JS -->
+<script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+<script src="../js/ajax.js"></script>
