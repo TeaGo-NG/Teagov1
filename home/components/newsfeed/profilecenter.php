@@ -59,18 +59,13 @@
 
         <?php
 
-        if(isset($_SESSION['newpost'])) {
+        
+        $user = $t_users['user'];
 
-            $sql = "SELECT * FROM article ORDER BY `id` desc LIMIT 10";
 
-            unset($_SESSION['newpost']);
-            
-        } else {
+            $sql = "SELECT * FROM article WHERE `user` = '$user' ORDER BY `id` desc";
 
-        $sql = "SELECT * FROM article ORDER BY RAND() desc LIMIT 10";
-
-        }
-$res = query($sql);
+        $res = query($sql);
 
 while($row = mysqli_fetch_array($res)) {
 

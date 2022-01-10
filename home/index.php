@@ -82,6 +82,7 @@ include("components/mobile.php");
     <script src="assets/js/plugins/isotope.pkgd.min.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+    <script src="../js/ajax.js"></script>
 
 </body>
 

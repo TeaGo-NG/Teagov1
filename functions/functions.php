@@ -593,23 +593,43 @@ if($year != 0) {
 }
 
 
-if(isset($_POST['gend']) && isset($_POST['inst']) && isset($_POST['dept']) && isset($_POST['level']) && isset($_POST['matric']) && isset($_POST['bank']) && isset($_POST['acctn']) && isset($_POST['actn']) && isset($_POST['pword'])) {
 
-	$gend 	 = clean(escape($_POST['gend']));
-	$inst 	 = clean(escape($_POST['inst']));
-	$dept 	 = clean(escape($_POST['dept']));
-	$level	 = clean(escape($_POST['level']));
-	$matric  = clean(escape($_POST['matric']));
-	$bank    = clean(escape($_POST['bank']));
-	$acctn   = clean(escape($_POST['acctn']));
-	$actn    = clean(escape($_POST['actn']));
-	$pword   = md5($_POST['pword']);
+//post article
+if(isset($_POST['title']) && isset($_POST['gist']) ) {
 
-	$user = $_SESSION['login'];
+	$titl 	 = clean(escape($_POST['title']));
+	$gist 	 = clean(escape($_POST['gist']));
+	$idid    = md5(rand(0, 9999));
+	$date    = date('Y-m-d h:i:sa');
+	$post_url   = str_replace(' ', '-', $titl);
 
-	$sql = "UPDATE users SET `gend` = '$gend', `inst` = '$inst', `tpin` = '$pword', `dept` = '$dept', `level` = '$level', `matric` = '$matric', `bname` = '$bank', `bact` = '$acctn', `actname` = '$actn' WHERE `usname` = '$user'";
+
+	//check for duplicated article id
+    $ssl = "SELECT * FROM article WHERE `articleurl` = '$post_url'";
+    $rsl = query($ssl);
+    if (row_count($rsl) == 1) {
+
+
+    //asign a new post_url 
+      $post_url = str_replace(' ', '-', $titl).rand(0, 99);
+
+    } else {
+ 
+    $post_url   = str_replace(' ', '-', $titl); 
+    }
+
+
+	user_details();
+
+	$user = $t_users['user'];
+	$pix  = $pix;
+
+	$sql = "INSERT INTO article(`id`, `user`, `post`, `react`, `dateposted`, `title`, `uspix`, `articleurl`, `comment`)";
+	$sql .= "VALUES('$idid', '$user', '$gist', '0', '$date', '$titl', '$pix', '$post_url', '0')";
 	$res = query($sql);
 
+	$_SESSION['newpost'] = "Article posted submitted successfully";
+	
 	echo "Loading... Please wait";
 	echo '<script>window.location.href ="./"</script>';
 }

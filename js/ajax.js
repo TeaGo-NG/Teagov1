@@ -142,10 +142,11 @@ $(document).ready(function () {
         if (gist == "" || gist == null) {
           $("#gmsg").html("Tell us your gist");
         } else {
+          $("#umsg").html("Loading... Please wait");
             $.ajax({
               type: "post",
-              url: "functions/init.php",
-              data: { fgpword: fgpword, fgcpword: fgcpword },
+              url: "../functions/init.php",
+              data: { title: title, gist: gist },
               success: function (data) {
                 $("#umsg").html(data);
               },
