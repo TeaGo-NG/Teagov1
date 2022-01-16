@@ -41,7 +41,7 @@
                                 placeholder="Tell us your gist"></textarea>
                             <p class="text-danger ml-1" id="gmsg"></p>
                         </div>
-                        <p class="text-danger ml-1" id="umsg"></p>
+                        <p class="text-danger ml-3" id="umsg"></p>
                         <div class=" modal-footer">
                             <button type="button" class="post-share-btn" data-dismiss="modal">cancel</button>
                             <button type="button" id="pst" class=" post-share-btn">post</button>
