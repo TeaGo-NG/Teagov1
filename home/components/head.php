@@ -62,5 +62,6 @@
     <link rel="stylesheet" href="assets/css/plugins/lightgallery.min.css">
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../fonts/material-icon/css/material-design-iconic-font.min.css">
 
 </head>

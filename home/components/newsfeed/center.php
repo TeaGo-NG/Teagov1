@@ -1,4 +1,4 @@
-<div class="col-lg-6 order-1 order-lg-2">
+ <div class="col-lg-6 order-1 order-lg-2">
     <!-- share box start -->
     <div class="card card-small">
         <div class="share-box-inner">
@@ -151,7 +151,7 @@ while($row = mysqli_fetch_array($res)) {
                             </button>
                         </li>
                         <li>
-                            <button class="post-share">
+                            <button class="post-share" data-toggle="modal" data-target="#modal">
                                 <i class="bi bi-share"></i>
                             </button>
                         </li>
@@ -160,6 +160,23 @@ while($row = mysqli_fetch_array($res)) {
             </div>
         </div>
         <!-- post status end -->
+        <div class="modal fade" id="modal">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div style="border-radius: 10px 10px 10px 10px; border-style: solid; border-color: #be1e2d; border-width: 2px;" class="modal-content">
+                      <div class="modal-body">
+                        <div>Share:</div>
+                        <div style="color: white;" class="text-center">
+                            <a href="https://api.whatsapp.com/send?text=<?php echo $url;?>" data-action="share/whatsapp/share" data-media="<?php echo $row['photo']; ?>">
+                                <span class="bi bi-"></span></a>
+                            <a href="http://www.facebook.com/sharer.php?u=<?php echo $url; ?>"target="_blank" title="Facebook" data-media="<?php echo $row['photo']; ?>">
+                                <span class="bi bi-facebook fa-3x"></span></a>
+                            <a href="http://twitter.com/home?status=<?php echo $url; ?>" target="_blank" title="Twitter" data-media="<?php echo $row['photo']; ?>">
+                                <span class="bi bi-twitter fa-3x"></span></a>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
         <?php
 }
