@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2021 at 04:08 PM
+-- Generation Time: Jan 23, 2022 at 05:19 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -48,7 +48,8 @@ CREATE TABLE `article` (
 INSERT INTO `article` (`sn`, `id`, `user`, `post`, `react`, `dateposted`, `title`, `pix`, `uspix`, `articleurl`, `comment`) VALUES
 (1, '', 'TeaGo COSE', 'Welcome to TeaGo COSE\r\n\r\nShedding Team Dynamism', '500', '2021-12-24 17:25:24', 'NEW HERE?', '', 'assets/images/log.png', 'NEW-HERE?', '0'),
 (2, '', 'TeaGo Cose', 'The Number One Campus Online Social Environment for Nigerian Tertiary Institutions \r\n\r\n\r\nWe are unveiling!', '200', '2021-12-24 18:17:06', 'WATIMAGBO', '', 'assets/images/log.png', 'watimagbo', '0'),
-(3, '', 'TeaGo COSE', 'Welcome to TeaGo COSE\r\n\r\nShedding Team Dynamism', '80', '2021-12-26 12:48:17', 'READ THIS FIRST!', '', 'assets/images/log.png', '', '0');
+(3, '', 'TeaGo COSE', 'Welcome to TeaGo COSE\r\n\r\nShedding Team Dynamism', '80', '2021-12-26 12:48:17', 'READ THIS FIRST!', '', 'assets/images/log.png', '', '0'),
+(18, '89b9c689a57b82e59074c6ba09aa394d', 'Grtnxhor', 'bsbde', '0', '2022-01-16 08:51:26', 'dbd', '', 'assets/images/log.png', 'dbd', '0');
 
 -- --------------------------------------------------------
 
@@ -77,7 +78,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`sn`, `id`, `fname`, `email`, `user`, `pword`, `dreg`, `lstseen`, `active`, `activator`, `pix`, `cover`, `verification`) VALUES
-(11, '1', 'Abolade Greatness', 'greatnessabolade@gmail.com', 'Grtnxhor', '53c1df01e11ec01bcf9ced4ccae8c667', '2021-12-23', '2021-12-29 10:01:57', '1', '', '', '', '1');
+(11, '1', 'Abolade Greatness', 'greatnessabolade@gmail.com', 'Grtnxhor', '53c1df01e11ec01bcf9ced4ccae8c667', '2021-12-23', '2022-01-16 08:53:15', '1', '', '', '', '1');
 
 --
 -- Indexes for dumped tables
@@ -103,7 +104,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `sn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `sn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `user`
