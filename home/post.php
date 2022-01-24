@@ -13,7 +13,7 @@ user_details();
 
 if (!isset($_GET['articleurl'])) {
     
-    redirect("./home");
+    redirect("./");
 }else{
     $data = $_GET['articleurl'];
     $sql = "SELECT * FROM article WHERE `articleurl` = '$data'";
