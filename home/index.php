@@ -57,7 +57,7 @@ include("components/mobile.php");
 
     <!-- JS
 ============================================ -->
-
+    
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
     <!-- jQuery JS -->
@@ -83,6 +83,23 @@ include("components/mobile.php");
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
     <script src="../js/ajax.js"></script>
+    <script>
+        function copy() {
+    /* Get the text field */
+    var copyText = document.getElementById("copy");
+
+    /* Select the text field */
+    copyText.select("copy");
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyText.value);
+
+    /* Alert the copied text */
+
+    document.getElementById("copied").innerHTML = "Post Link Copied!";;
+    }
+    </script>
 
 </body>
 

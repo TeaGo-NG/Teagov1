@@ -6,3 +6,8 @@ RewriteRule ^(.*)$ $1.html [NC,L]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.*)$ $1.php [NC,L] 
+
+RewriteEngine On    # Turn on the rewriting engine
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule    ^([A-Za-z0-9_-]+)$    /post?articleurl=$1    [NC,L]    # Handle page requests

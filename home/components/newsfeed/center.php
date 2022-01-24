@@ -167,11 +167,15 @@ while($row = mysqli_fetch_array($res)) {
                         <div>Share:</div>
                         <div style="color: white;" class="text-center">
                             <a href="https://api.whatsapp.com/send?text=<?php echo $url;?>" data-action="share/whatsapp/share" data-media="<?php echo $row['photo']; ?>">
-                                <span class="bi bi-"></span></a>
-                            <a href="http://www.facebook.com/sharer.php?u=<?php echo $url; ?>"target="_blank" title="Facebook" data-media="<?php echo $row['photo']; ?>">
-                                <span class="bi bi-facebook fa-3x"></span></a>
-                            <a href="http://twitter.com/home?status=<?php echo $url; ?>" target="_blank" title="Twitter" data-media="<?php echo $row['photo']; ?>">
-                                <span class="bi bi-twitter fa-3x"></span></a>
+                                <span class="fa fa-whatsapp fa-3x" style="color:#4AC959; margin:20px;"></span></a>
+                            <a href="http://www.facebook.com/sharer.php?u=<?php echo $url; ?><?php echo $row['articleurl'] ?>"target="_blank" title="Facebook" data-media="<?php echo $row['photo']; ?>">
+                                <span class="fa fa-facebook fa-3x" style="color:#3b5998; margin:20px;"></span></a>
+                            <a href="http://twitter.com/home?status=<?php echo $url; ?><?php echo $row['articleurl'] ?>" target="_blank" title="Twitter" data-media="<?php echo $row['photo']; ?>">
+                                <span class="fa fa-twitter fa-3x" style="color:#00acee; margin:20px;"></span></a>
+                            <span class="fa fa-copy fa-3x" style="color:#be1e2d; margin:20px;" onclick="copy()"></span>
+                            <div><h6 id="copied"></h6></div>
+                            <input type="text" hidden value="<?php echo $url; ?><?php echo $row['articleurl'] ?>" id="copy">
+                            
                         </div>
                       </div>
                   </div>

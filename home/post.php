@@ -11,6 +11,21 @@ if(!isset($_SESSION['user']) || $_SESSION['user'] == '') {
 
 user_details();
 
+if (!isset($_GET['articleurl'])) {
+    
+    redirect("./home");
+}else{
+    $data = $_GET['articleurl'];
+    $sql = "SELECT * FROM article WHERE `articleurl` = '$data'";
+    $res = query($sql);
+    if (row_count($res) == "") {
+        
+      redirect("./opps");  
+}else{
+    $row  = mysqli_fetch_array($res);
+    
+}
+
 include("components/head.php");
 ?>
 
