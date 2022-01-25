@@ -140,9 +140,14 @@ while($row = mysqli_fetch_array($res)) {
                 ?>
 
                 <div class="post-meta">
-                    <button class="post-meta-like">
-                        <i class="bi bi-love"></i>
-                        <span><?php echo number_format($row['react']) ?></span> </button>
+                    <button class="post-meta-like" id="unlike" onclick="unlike()">
+                        <i class="fa fa-star fa-4x" style="color: #be1e2d; "></i>
+                        <span><?php echo number_format($row['react']) ?></span> 
+                    </button>
+                    <button class="post-meta-like" id="like" onclick="like()">
+                        <i class="fa fa-star-o fa-4x"></i>
+                        <span><?php echo number_format($row['react']) ?></span> 
+                    </button>
                     <ul class="comment-share-meta">
                         <li>
                             <button class="post-comment">

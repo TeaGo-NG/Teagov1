@@ -101,6 +101,7 @@ include("components/mobile.php");
     }
     </script>
 
+    
 </body>
 
 </html>

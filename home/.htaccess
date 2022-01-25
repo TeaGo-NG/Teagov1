@@ -1,13 +1,10 @@
-RewriteEngine on 
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^(.*)$ $1.html [NC,L]
-
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.php -f
-RewriteRule ^(.*)$ $1.php [NC,L] 
-
 RewriteEngine On
+RewriteCond %{QUERY_STRING} ^post=([^&\s]+)$
+RewriteRule ^(?:post\.php|)$ /%1? [R=301,L]
+
+RewriteCond %{QUERY_STRING} ^post=([^&\s]+)&post=([^&\s]+)$
+RewriteRule ^(?:post\.php|)$ /%1/%2? [R=301,L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([A-Za-z0-9_-]+)$ /post?articleurl=$1 [NC,L]
+RewriteRule ^([^\s\/]+)/?$ post.php?page=$1&r [L,QSA]
