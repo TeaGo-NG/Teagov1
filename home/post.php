@@ -11,11 +11,11 @@ if(!isset($_SESSION['user']) || $_SESSION['user'] == '') {
 
 user_details();
 
-if (!isset($_GET['articleurl'])) {
+if (!isset($_GET['read'])) {
     
     redirect("./");
 }else{
-    $data = $_GET['articleurl'];
+    $data = $_GET['read'];
     $sql = "SELECT * FROM article WHERE `articleurl` = '$data'";
     $res = query($sql);
 
