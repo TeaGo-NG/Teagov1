@@ -11,7 +11,7 @@ if(!isset($_SESSION['user']) || $_SESSION['user'] == '') {
 
 user_details();
 
-if (isset($_GET['articleurl'])) {
+if (!isset($_GET['articleurl'])) {
     
     redirect("./");
 }else{
