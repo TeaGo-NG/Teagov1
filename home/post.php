@@ -142,7 +142,7 @@ include("components/mobile.php");
             </div>
             <!-- post title start -->
             <div class="post-content">
-                <a href="./<?php echo $row['articleurl'] ?>" class="text-dark">
+                
                     <b>
                         <p class="post-desc">
                             <?php echo ucwords($row['title']) ?>
@@ -151,8 +151,7 @@ include("components/mobile.php");
                     <p class="post-desc">
                         <?php echo $row['post'] ?>
                     </p>
-                </a>
-
+             
                 <div class="post-meta">
                     <button class="post-meta-like" id="unlike" onclick="unlike()">
                         <i class="fa fa-star fa-4x" style="color: #be1e2d; "></i>
@@ -179,8 +178,8 @@ include("components/mobile.php");
             </div>
             <br>
             <div class="share-content-box w-100" id="modal">
-                <form class="share-text-box">
-                    <textarea name="share" class="share-text-field" aria-disabled="true" placeholder="Post your comment here!" id="comment"></textarea>
+                <form class="share-text-box row">
+                    <textarea name="share" class="share-text-field" aria-disabled="true" placeholder="Post your comment here!" id="comment"></textarea><span><button>wkdhw</button></span>
                 </form>
             </div><br>
             <div class="widget-item">
