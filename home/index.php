@@ -100,27 +100,7 @@ include("components/mobile.php");
     document.getElementById("copied").innerHTML = "Post Link Copied!";;
     }
     </script>
-    <script>
-        var like_button=document.getElementById('like');
-        var unlike_button = document.getElementById('unlike');
-        unlike_button.style.display="none";
-
-        function like(){
-            var like_button=document.getElementById('like');
-        var unlike_button = document.getElementById('unlike');
-        like_button.style.display="none";
-        unlike_button.style.display="block";
-
-        }
-
-        function unlike(){
-            var like_button=document.getElementById('like');
-        var unlike_button = document.getElementById('unlike');
-        like_button.style.display="block";
-        unlike_button.style.display="none";
-
-        }
-    </script>
+    
 
     
 </body>
