@@ -191,7 +191,30 @@ include("components/mobile.php");
             <div class="widget-item">
                 <h6 class="widget-title"><b>Comments</b></h6>
                 <div id="show">
-                
+                    <?php 
+                    $post = $row['sn'];
+                    $ssl = "SELECT * FROM comments WHERE `post_id` = '$post'";
+                    $rsl = query($ssl);
+
+                    while($row = mysqli_fetch_array($rsl)) {
+
+                    ?>
+                            <div class="share-content-box w-100 ">
+                                <form class="share-text-box col-12 row">
+                                    <div class="share-text-field" style="height: fit-content ; border-radius: 15px;">
+                                        <?php echo $row['comment'];  ?><br>
+                                        <?php echo $row['datecommented'];  ?><br>
+                                        <?php echo $row['user'];  ?><br>
+
+                                    </div>
+                                </form>
+
+                            </div><br>
+                    <?php 
+                    }
+
+                 
+                ?>
                 </div>
             </div>
         </div>
