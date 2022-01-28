@@ -177,10 +177,11 @@ include("components/mobile.php");
                 </div>
             </div>
             <br>
-            <div class="share-content-box w-100" id="modal">
-                <form class="share-text-box row">
+            <div class="share-content-box w-100 col-12 row" id="modal">
+                <form class="share-text-box col-9">
                     <textarea name="share" class="share-text-field" aria-disabled="true" placeholder="Post your comment here!" id="comment"></textarea>
                 </form>
+                <button type="button" class="post-share-btn col-3">Post</button>
             </div><br>
             <div class="widget-item">
                 <h6 class="widget-title"><b>Comments</b></h6>
