@@ -181,7 +181,7 @@ include("components/mobile.php");
                 <form class="share-text-box col-12 row">
                     <textarea name="share" class="share-text-field col-8" aria-disabled="true" placeholder="Post your comment here!" id="content"></textarea>
                     <p class="col-1"></p>
-                    <button type="button" id="comment_btn" class="post-share-btn col-3">Post</button>
+                    <button type="button" id="comment_btn" style="width: 50px;" class="post-share-btn col-3 d-flex">Post</button>
                     <p id="msg"></p>
                     <input type="text" id="post_id" hidden value="<?php echo $row['sn']; ?>">
                     <input type="text" id="user" hidden value="<?php echo $user; ?>">
@@ -198,18 +198,24 @@ include("components/mobile.php");
 
                     while($row = mysqli_fetch_array($rsl)) {
 
-                    ?>
-                            <div class="share-content-box w-100 ">
+                    ?>      
+                            <div class="col-12 row">
+                            <img class="col-3" style="size: 0.5%;" src="assets/images/log.png">
+                            <div class="share-content-box w-100 col-9">
                                 <form class="share-text-box col-12 row">
                                     <div class="share-text-field" style="height: fit-content ; border-radius: 15px;">
-                                        <?php echo $row['comment'];  ?><br>
-                                        <?php echo $row['datecommented'];  ?><br>
-                                        <?php echo $row['user'];  ?><br>
+                                        <div class="row">
+                                            <h6 class="col-9"><strong><?php echo $row['user'];  ?><br></strong></h6>
+                                            <small class="col-12"><?php echo $row['datecommented'];  ?></small>
+                                        </div>
+                                        <div><?php echo $row['comment'];  ?></div>
 
                                     </div>
                                 </form>
 
+                            </div>
                             </div><br>
+                            
                     <?php 
                     }
 
