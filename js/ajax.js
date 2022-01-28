@@ -154,6 +154,32 @@ $(document).ready(function () {
           }
         }
     });
-  
+    
+    // $('textarea').keyup(function(){
+    //    if($.trim(this.value).length > 0)
+    //        $('#comment_btn').show()
+    //     else
+    //        $('#comment_btn').hide()
+    // });
+
+    $("#comment_btn").click(function() {
+      var comment = $("#content").val();
+      var post = $("#post_id").val();
+
+      if (comment == "" || comment == null ) {
+        $("#msg").html("Write a comment");
+      }else{
+        $.ajax({
+              type: "post",
+              url: "../functions/init.php",
+              data: { comment: comment, post: post },
+              success: function (data) {
+                $("#show").html(data);
+              },
+            });
+      }
+      
+    });
+
   });
   

@@ -636,16 +636,50 @@ if(isset($_POST['title']) && isset($_POST['gist']) ) {
 
 //get page url
 
-    if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+    if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {  
          $url = "https://";   
-    else  
+    }else{  
          $url = "http://";   
     // Append the host(domain name, ip) to the URL.   
     $url.= $_SERVER['HTTP_HOST'];   
     
     // Append the requested resource location to the URL   
-    $url.= $_SERVER['REQUEST_URI'];    
+    $url.= $_SERVER['REQUEST_URI']; }   
       
-  
+ // Input Comment into DB
+
+if(isset($_POST['comment']) && isset($_POST['post'])) {
+ 	$comment 	 = clean(escape($_POST['comment']));
+	$post 	 = clean(escape($_POST['post']));
+	$date    = date('Y-m-d h:i:sa');
+
+	user_details();
+
+	$user = $t_users['user'];
+
+	$sql = "INSERT INTO comments(`post_id`, `comment`, `user`, `datecommented`, `parent_id`)";
+	$sql.= "VALUES('$post', '$comment', '$user', '$date', '0')";
+	$result = query($sql);
+
+	$ssl = "SELECT * FROM comments WHERE `post_id` = '$post'";
+    $rsl = query($ssl);
+
+    while($row = mysqli_fetch_array($rsl)) {
+
+    ?>
+    		<div class="share-content-box w-100 ">
+                <form class="share-text-box col-12 row">
+                    <h6>
+                    	<?php echo $row['comment'];  ?><br>
+                    	<?php echo $row['datecommented'];  ?><br>
+                    	<?php echo $row['user'];  ?><br>
+
+                    </h6>
+                </form>
+
+            </div><br>
+    <?php 
+	}
+}
  
 ?>
