@@ -164,7 +164,6 @@ $(document).ready(function () {
       var comment = $("#content").val();
       var post = $("#post_id").val();
       var commentId = $("responseid").val();
-      console.log(commentId);
       if (comment == "" || comment == null ) {
         $("#msg").html("Write a comment");
       }else{
