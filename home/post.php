@@ -177,15 +177,21 @@ include("components/mobile.php");
                 </div>
             </div>
             <br>
-            <div class="share-content-box w-100 ">
-                <form class="share-text-box col-12 row">
-                    <textarea name="share" class="share-text-field col-8" aria-disabled="true" placeholder="Post your comment here!" id="content"></textarea>
-                    <p class="col-1"></p>
-                    <button type="button" id="comment_btn" style="width: 50px;" class="post-share-btn col-3 d-flex">Post</button>
+            <div class="">
+                <div class="" style="">
+                    <div class="col-12 row">
+                        <div class="" style="width: 80%; margin-left: 0px; margin-right:" >
+                        <textarea name="share" class="" style="border-radius: 20px; background-color: #e6e6e6; width: 100%; height: 40px; padding: 10px; border-color: #999999;" aria-disabled="true" placeholder=" Post Comment!" id="content"></textarea>
+                        </div>
+                        <div class="" style="width: 20%;">
+                            <button type="button" id="comment_btn"  class="post-share-btn">Post</button>
+                        </div>
+                    </div>
+                    
                     <p id="msg"></p>
                     <input type="text" id="post_id" hidden value="<?php echo $row['sn']; ?>">
                     <input type="text" id="user" hidden value="<?php echo $user; ?>">
-                </form>
+                </div>
 
             </div><br>
             <div class="widget-item">
@@ -193,25 +199,26 @@ include("components/mobile.php");
                 <div id="show">
                     <?php 
                     $post = $row['sn'];
-                    $ssl = "SELECT * FROM comments WHERE `post_id` = '$post'";
+                    $ssl = "SELECT * FROM comments WHERE `post_id` = '$post' ORDER BY `id` DESC";
                     $rsl = query($ssl);
 
                     while($row = mysqli_fetch_array($rsl)) {
 
                     ?>      
-                            <div class="col-12 row">
-                            <img class="col-3" style="size: 0.5%;" src="assets/images/log.png">
-                            <div class="share-content-box w-100 col-9">
-                                <form class="share-text-box col-12 row">
+                            <div class=" row">
+                            <div class="" >
+                                <img style="max-height: 40px; max-width: 40px;" class="responsive" src="assets/images/log.png">
+                            </div>
+                            <div class="" style="max-width: 87%; padding-left: 20px;">
+                                <div style="border-radius: 10px; background-color: #e6e6e6;" >
                                     <div class="share-text-field" style="height: fit-content ; border-radius: 15px;">
                                         <div class="row">
-                                            <h6 class="col-9"><strong><?php echo $row['user'];  ?><br></strong></h6>
-                                            <small class="col-12"><?php echo $row['datecommented'];  ?></small>
+                                            <p class="col-12" style="margin: 7px"><strong><?php echo $row['user'];  ?></strong></p>
+                                            <!-- <small class="col-12"><?php echo $row['datecommented'];  ?></small> -->
                                         </div>
-                                        <div><?php echo $row['comment'];  ?></div>
-
+                                        <div style="margin: -10px 10px 10px 10px"><?php echo $row['comment'];  ?></div>
                                     </div>
-                                </form>
+                                </div>
 
                             </div>
                             </div><br>
@@ -317,6 +324,23 @@ include("components/mobile.php");
         unlike_button.style.display="none";
 
         }
+    </script>
+    <script>
+        function copy() {
+    /* Get the text field */
+    var copyText = document.getElementById("copy");
+
+    /* Select the text field */
+    copyText.select("copy");
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyText.value);
+
+    /* Alert the copied text */
+
+    document.getElementById("copied").innerHTML = "Post Link Copied!";;
+    }
     </script>
 </body>
 

@@ -179,7 +179,11 @@ while($row = mysqli_fetch_array($res)) {
                                 <span class="fa fa-twitter fa-3x" style="color:#00acee; margin:20px;"></span></a>
                             <span class="fa fa-copy fa-3x" style="color:#be1e2d; margin:20px;" onclick="copy()"></span>
                             <div><h6 id="copied"></h6></div>
-                            <input type="text" hidden value="<?php echo $url; ?><?php echo $row['articleurl'] ?>" id="copy">
+                            <?php
+                            $link = './post?read=';
+                            $pst = $row['articleurl'];
+                            ?>
+                            <input type="text" hidden value="<?php echo$url; echo $link; echo $pst; ?>" id="copy">
                             
                         </div>
                       </div>
