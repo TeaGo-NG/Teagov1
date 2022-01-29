@@ -155,24 +155,23 @@ $(document).ready(function () {
         }
     });
     
-    // $('textarea').keyup(function(){
-    //    if($.trim(this.value).length > 0)
-    //        $('#comment_btn').show()
-    //     else
-    //        $('#comment_btn').hide()
-    // });
+
+
+   
+   //Comment Begins
 
     $("#comment_btn").click(function() {
       var comment = $("#content").val();
       var post = $("#post_id").val();
-
+      var commentId = $("responseid").val();
+      console.log(commentId);
       if (comment == "" || comment == null ) {
         $("#msg").html("Write a comment");
       }else{
         $.ajax({
               type: "post",
               url: "../functions/init.php",
-              data: { comment: comment, post: post },
+              data: { comment: comment, post: post, commentId: commentId },
               success: function (data) {
                 $("#show").html(data);
               },
@@ -180,6 +179,8 @@ $(document).ready(function () {
       }
       
     });
+
+      
 
   });
   

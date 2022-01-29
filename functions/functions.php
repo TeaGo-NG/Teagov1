@@ -644,21 +644,28 @@ if(isset($_POST['title']) && isset($_POST['gist']) ) {
     $url.= $_SERVER['HTTP_HOST'];   
     
     // Append the requested resource location to the URL   
-    $url.= $_SERVER['REQUEST_URI']; }   
+    $url.= $_SERVER['REQUEST_URI']; }  
+
+
+
+
+
       
  // Input Comment into DB
 
-if(isset($_POST['comment']) && isset($_POST['post'])) {
+if(isset($_POST['comment']) && isset($_POST['post']) && isset($_POST['commentId'])) {
  	$comment 	 = clean(escape($_POST['comment']));
 	$post 	 = clean(escape($_POST['post']));
-	$date    = date('Y-m-d h:i:sa');
+	$date    = date('Y-m-d');
+	$commentId = clean(escape($_POST['commentId']));
+
 
 	user_details();
 
 	$user = $t_users['user'];
 
 	$sql = "INSERT INTO comments(`post_id`, `comment`, `user`, `datecommented`, `parent_id`)";
-	$sql.= "VALUES('$post', '$comment', '$user', '$date', '0')";
+	$sql.= "VALUES('$post', '$comment', '$user', '$date', '$commentId')";
 	$result = query($sql);
 
 	$ssl = "SELECT * FROM comments WHERE `post_id` = '$post' ORDER BY `id` DESC";
@@ -676,16 +683,27 @@ if(isset($_POST['comment']) && isset($_POST['post'])) {
                                     <div class="share-text-field" style="height: fit-content ; border-radius: 15px;">
                                         <div class="row">
                                             <p class="col-12" style="margin: 7px"><strong><?php echo $row['user'];  ?></strong></p>
-                                            <!-- <small class="col-12"><?php echo $row['datecommented'];  ?></small> -->
                                         </div>
-                                        <div style="margin: -10px 10px 10px 10px"><?php echo $row['comment'];  ?></div>
+                                        <div style="margin: -10px 10px 0px 10px"><?php echo $row['comment'];  ?>
+                                        </div>
+                                        
                                     </div>
                                 </div>
-
+                                <!-- <small class="col-12"><?php echo $row['datecommented'];  ?></small> -->
+                                <span>
+                                    <small>
+                                        <strong>
+                                            <input type="text" name="" id="commentId" value="<?php echo $row['id']; ?>" hidden>
+                                            <p href="" onclick="reply()" style="color:#be1e2d; cursor: pointer;">Reply</p>
+                                        </strong>
+                                    </small>
+                                </span>
                             </div>
-                        </div><br>
+                            </div><br>
     <?php 
 	}
 }
  
+// Input Comment into DB******//
+
 ?>

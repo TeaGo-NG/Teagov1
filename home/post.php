@@ -189,6 +189,7 @@ include("components/mobile.php");
                     </div>
                     
                     <p id="msg"></p>
+                    <input type="text" id="responseid" hidden>
                     <input type="text" id="post_id" hidden value="<?php echo $row['sn']; ?>">
                     <input type="text" id="user" hidden value="<?php echo $user; ?>">
                 </div>
@@ -214,12 +215,21 @@ include("components/mobile.php");
                                     <div class="share-text-field" style="height: fit-content ; border-radius: 15px;">
                                         <div class="row">
                                             <p class="col-12" style="margin: 7px"><strong><?php echo $row['user'];  ?></strong></p>
-                                            <!-- <small class="col-12"><?php echo $row['datecommented'];  ?></small> -->
                                         </div>
-                                        <div style="margin: -10px 10px 10px 10px"><?php echo $row['comment'];  ?></div>
+                                        <div style="margin: -10px 10px 0px 10px"><?php echo $row['comment'];  ?>
+                                        </div>
+                                        
                                     </div>
                                 </div>
-
+                                <!-- <small class="col-12"><?php echo $row['datecommented'];  ?></small> -->
+                                <span>
+                                    <small>
+                                        <strong>
+                                            <input type="text" name="" id="commentId" value="<?php echo $row['id']; ?>" hidden>
+                                            <p href="" onclick="reply()" style="color:#be1e2d; cursor: pointer;">Reply</p>
+                                        </strong>
+                                    </small>
+                                </span>
                             </div>
                             </div><br>
                             
@@ -341,6 +351,14 @@ include("components/mobile.php");
 
     document.getElementById("copied").innerHTML = "Post Link Copied!";;
     }
+    </script>
+    <script>
+        function reply() {
+
+        var val = $('#commentId').val();
+        document.getElementById('responseid').value = val;
+        $("#content").focus();
+      }   
     </script>
 </body>
 
