@@ -161,6 +161,7 @@ $(document).ready(function () {
    //Comment Begins
 
     $("#comment_btn").click(function() {
+      
       var comment = $("#content").val();
       var post = $("#post_id").val();
       var commentId = $("responseid").val();
@@ -170,13 +171,13 @@ $(document).ready(function () {
         $.ajax({
               type: "post",
               url: "../functions/init.php",
-              data: { comment: comment, post: post, commentId: commentId },
+              data: { comment: comment, post: post },
               success: function (data) {
                 $("#show").html(data);
               },
             });
       }
-      
+      document.getElementById('content').value = '';
     });
 
       

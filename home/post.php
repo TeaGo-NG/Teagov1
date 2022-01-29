@@ -180,10 +180,10 @@ include("components/mobile.php");
             <div class="">
                 <div class="" style="">
                     <div class="col-12 row">
-                        <div class="" style="width: 80%; margin-left: 0px; margin-right:" >
+                        <div class="" style="width: 78%; margin-left: 0px; margin-right:" >
                         <textarea name="share" class="" style="border-radius: 20px; background-color: #e6e6e6; width: 100%; height: 40px; padding: 10px; border-color: #999999; overflow: hidden;" aria-disabled="true" placeholder=" Post Comment!" id="content"></textarea>
                         </div>
-                        <div class="" style="width: 20%;">
+                        <div class="" style="width: 20%; margin-left: 5px">
                             <button type="button" id="comment_btn"  class="post-share-btn">Post</button>
                         </div>
                     </div>

@@ -653,11 +653,10 @@ if(isset($_POST['title']) && isset($_POST['gist']) ) {
       
  // Input Comment into DB
 
-if(isset($_POST['comment']) && isset($_POST['post']) && isset($_POST['commentId'])) {
+if(isset($_POST['comment']) && isset($_POST['post'])) {
  	$comment 	 = clean(escape($_POST['comment']));
 	$post 	 = clean(escape($_POST['post']));
 	$date    = date('Y-m-d');
-	$commentId = clean(escape($_POST['commentId']));
 
 
 	user_details();
@@ -665,7 +664,7 @@ if(isset($_POST['comment']) && isset($_POST['post']) && isset($_POST['commentId'
 	$user = $t_users['user'];
 
 	$sql = "INSERT INTO comments(`post_id`, `comment`, `user`, `datecommented`, `parent_id`)";
-	$sql.= "VALUES('$post', '$comment', '$user', '$date', '$commentId')";
+	$sql.= "VALUES('$post', '$comment', '$user', '$date', '0')";
 	$result = query($sql);
 
 	$ssl = "SELECT * FROM comments WHERE `post_id` = '$post' ORDER BY `id` DESC";
