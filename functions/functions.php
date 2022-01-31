@@ -646,10 +646,35 @@ if(isset($_POST['title']) && isset($_POST['gist']) ) {
     // Append the requested resource location to the URL   
     $url.= $_SERVER['REQUEST_URI']; }  
 
+//Like Button
+if (isset($_POST['like']) && isset($_POST['post'])) {
+	$post = $_POST['post'];
+	$var = $_POST['like'];
+	$sql = "SELECT * FROM `article` WHERE `sn` = '$post'";
+	$rsl = query($sql);
+	$row = mysqli_fetch_array($rsl);
+	$reac = $row['react'];
+	$react_now = $reac + $var;
+	$up = "UPDATE article SET `react` = '$react_now' WHERE `sn` = '$post'";
+	$ud = query($up);
 
+	?><span><?php echo $react_now; ?></span> <?php
+}
 
+//unlike
+if (isset($_POST['unlike']) && isset($_POST['post'])) {
+	$post = $_POST['post'];
+	$var = $_POST['unlike'];
+	$sql = "SELECT * FROM `article` WHERE `sn` = '$post'";
+	$rsl = query($sql);
+	$row = mysqli_fetch_array($rsl);
+	$reac = $row['react'];
+	$react_now = $reac - $var;
+	$up = "UPDATE article SET `react` = '$react_now' WHERE `sn` = '$post'";
+	$ud = query($up);
 
-
+	?><span><?php echo $react_now; ?></span> <?php
+}
       
  // Input Comment into DB
 
@@ -657,17 +682,19 @@ if(isset($_POST['comment']) && isset($_POST['post'])) {
  	$comment 	 = clean(escape($_POST['comment']));
 	$post 	 = clean(escape($_POST['post']));
 	$date    = date('Y-m-d');
-
+	$commentId = clean(escape($_POST['commentId']));
 
 	user_details();
 
 	$user = $t_users['user'];
 
 	$sql = "INSERT INTO comments(`post_id`, `comment`, `user`, `datecommented`, `parent_id`)";
-	$sql.= "VALUES('$post', '$comment', '$user', '$date', '0')";
+	$sql.= "VALUES('$post', '$comment', '$user', '$date', '$commentId')";
 	$result = query($sql);
 
-	$ssl = "SELECT * FROM comments WHERE `post_id` = '$post' ORDER BY `id` DESC";
+	
+
+	$ssl = "SELECT * FROM comments WHERE `post_id` = '$post' AND `parent_id` = '0' ORDER BY `id` DESC";
     $rsl = query($ssl);
 
     while($row = mysqli_fetch_array($rsl)) {
@@ -701,8 +728,21 @@ if(isset($_POST['comment']) && isset($_POST['post'])) {
                             </div><br>
     <?php 
 	}
+	
+   
 }
  
-// Input Comment into DB******//
+//End Input Comment into DB******//
 
+
+if (isset($_POST['num']) && isset($_POST['post'])) {
+	$new = $_POST['num'];
+	$post = $_POST['post'];
+	$sqll = "UPDATE article SET `comment` = '$new' WHERE `sn` = '$post'";;
+	$results = query($sqll);
+
+	echo '<p><?php echo $new; ?></p>';
+	
+
+}
 ?>

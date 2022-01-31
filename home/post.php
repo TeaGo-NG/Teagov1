@@ -29,7 +29,16 @@ if (row_count($res) == "") {
 }
 include("components/head.php");
 ?>
-
+<script>
+    function reply() {
+    event.preventDefault();
+    var val = $('#commentId').val();
+    document.getElementById('responseid').value = val;
+        console.log (val);
+        $('#content').focus();
+        }
+     
+</script>
 <body>
 
     <?php
@@ -155,17 +164,26 @@ include("components/mobile.php");
                 <div class="post-meta">
                     <button class="post-meta-like" id="unlike" onclick="unlike()">
                         <i class="fa fa-star fa-4x" style="color: #be1e2d; "></i>
-                        <span><?php echo number_format($row['react']) ?></span> 
                     </button>
                     <button class="post-meta-like" id="like" onclick="like()">
                         <i class="fa fa-star-o fa-4x"></i>
-                        <span><?php echo number_format($row['react']) ?></span> 
-                    </button>
+                    </button> &nbsp;
+                    <p id="love">
+                        <span><?php echo number_format($row['react']) ?></span>
+                    </p>
+                    
+                    <?php
+                    $post = $row['sn'];
+                    $ssl = "SELECT * FROM comments WHERE `post_id` = '$post' AND `parent_id` = '0' ORDER BY `id` DESC";
+                    $rsl = query($ssl);
+                    $count=mysqli_num_rows($rsl);
+
+                     ?>
                     <ul class="comment-share-meta">
                         <li>
-                            <button class="post-comment">
+                            <button class="post-comment" >
                                 <i class="bi bi-chat-bubble"></i>
-                                <span><?php echo number_format($row['comment']) ?></span>
+                                <span id="com"><p><?php echo $count; ?></p></span>
                             </button>
                         </li>
                         <li>
@@ -181,7 +199,7 @@ include("components/mobile.php");
                 <div class="" style="">
                     <div class="col-12 row">
                         <div class="" style="width: 78%; margin-left: 0px; margin-right:" >
-                        <textarea name="share" class="" style="border-radius: 20px; background-color: #e6e6e6; width: 100%; height: 40px; padding: 10px; border-color: #999999; overflow: hidden;" aria-disabled="true" placeholder=" Post Comment!" id="content"></textarea>
+                        <textarea name="share" class="" style="border-radius: 20px; background-color: #e6e6e6; width: 100%; height: 40px; padding: 10px; border-color: #999999; overflow: hidden;" aria-disabled="true" placeholder=" Post Comment!" id="content" onclick="clear()"></textarea>
                         </div>
                         <div class="" style="width: 20%; margin-left: 5px">
                             <button type="button" id="comment_btn"  class="post-share-btn">Post</button>
@@ -200,7 +218,7 @@ include("components/mobile.php");
                 <div id="show">
                     <?php 
                     $post = $row['sn'];
-                    $ssl = "SELECT * FROM comments WHERE `post_id` = '$post' ORDER BY `id` DESC";
+                    $ssl = "SELECT * FROM comments WHERE `post_id` = '$post' AND `parent_id` = '0' ORDER BY `id` DESC";
                     $rsl = query($ssl);
 
                     while($row = mysqli_fetch_array($rsl)) {
@@ -225,17 +243,17 @@ include("components/mobile.php");
                                 <span>
                                     <small>
                                         <strong>
-                                            <input type="text" name="" id="commentId" value="<?php echo $row['id']; ?>" hidden>
+                                            <input type="text" name="" id="commentId" value="<?php echo $row['id']; ?>" hidden >
                                             <p href="" onclick="reply()" style="color:#be1e2d; cursor: pointer;">Reply</p>
                                         </strong>
                                     </small>
                                 </span>
                             </div>
                             </div><br>
-                            
+                      
                     <?php 
                     }
-
+              
                  
                 ?>
                 </div>
@@ -318,23 +336,7 @@ include("components/mobile.php");
     <script src="assets/js/main.js"></script>
     <script src="../js/ajax.js"></script>
 
-    <script>
-        var like_button=document.getElementById('like');
-        var unlike_button = document.getElementById('unlike');
-        unlike_button.style.display="none";
-
-        function like(){
-        like_button.style.display="none";
-        unlike_button.style.display="block";
-
-        }
-
-        function unlike(){
-        like_button.style.display="block";
-        unlike_button.style.display="none";
-
-        }
-    </script>
+    
     <script>
         function copy() {
     /* Get the text field */
@@ -353,13 +355,40 @@ include("components/mobile.php");
     }
     </script>
     <script>
-        function reply() {
+        var like_button=document.getElementById('like');
+        var unlike_button = document.getElementById('unlike');
+        var post = $("#post_id").val();
+        unlike_button.style.display="none";
 
-        var val = $('#commentId').val();
-        document.getElementById('responseid').value = val;
-        $("#content").focus();
-      }   
+        function like(){
+        like_button.style.display="none";
+        unlike_button.style.display="block";
+        var like = '+1';
+        $.ajax({
+              type: "post",
+              url: "../functions/init.php",
+              data: { like: like, post: post},
+              success: function (data) {
+                $("#love").html(data);
+              },
+            });
+        }
+
+        function unlike(){
+        like_button.style.display="block";
+        unlike_button.style.display="none";
+        var unlike = '1';
+        $.ajax({
+              type: "post",
+              url: "../functions/init.php",
+              data: { unlike: unlike, post: post},
+              success: function (data) {
+                $("#love").html(data);
+              },
+            });
+        }
     </script>
+
 </body>
 
 </html>
