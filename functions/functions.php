@@ -650,13 +650,25 @@ if(isset($_POST['title']) && isset($_POST['gist']) ) {
 if (isset($_POST['like']) && isset($_POST['post'])) {
 	$post = $_POST['post'];
 	$var = $_POST['like'];
+
+
 	$sql = "SELECT * FROM `article` WHERE `sn` = '$post'";
 	$rsl = query($sql);
 	$row = mysqli_fetch_array($rsl);
 	$reac = $row['react'];
 	$react_now = $reac + $var;
+
+	//Updates number of likes in comments table
 	$up = "UPDATE article SET `react` = '$react_now' WHERE `sn` = '$post'";
 	$ud = query($up);
+
+	//Updates the like details in the like table
+	user_details();
+	$user = $t_users['user'];
+	$date    = date('Y-m-d');
+	$sql = "INSERT INTO likes(`post`, `user`, `dateliked`)";
+	$sql.= "VALUES('$post', '$user', '$date')";
+	$result = query($sql);
 
 	?><span><?php echo $react_now; ?></span> <?php
 }
@@ -672,6 +684,13 @@ if (isset($_POST['unlike']) && isset($_POST['post'])) {
 	$react_now = $reac - $var;
 	$up = "UPDATE article SET `react` = '$react_now' WHERE `sn` = '$post'";
 	$ud = query($up);
+
+	//delete user like details from database
+	user_details();
+	$user = $t_users['user'];
+	$date    = date('Y-m-d');
+	$sql = "DELETE FROM likes WHERE `post` = '$post' AND `user` = '$user' ";
+	$result = query($sql);
 
 	?><span><?php echo $react_now; ?></span> <?php
 }

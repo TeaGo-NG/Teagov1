@@ -164,10 +164,33 @@ include("components/mobile.php");
                 <div class="post-meta">
                     <button class="post-meta-like" id="unlike" onclick="unlike()">
                         <i class="fa fa-star fa-4x" style="color: #be1e2d; "></i>
-                    </button>
+                    </button> 
                     <button class="post-meta-like" id="like" onclick="like()">
                         <i class="fa fa-star-o fa-4x"></i>
                     </button> &nbsp;
+                    <?php
+                    $post = $row['sn'];
+                    $user = $t_users['user'];
+                    $ssl = "SELECT * FROM likes WHERE `post` = '$post' AND `user` = '$user'";
+                    $rsl = query($ssl);
+                    $count=mysqli_num_rows($rsl); 
+                    if ($count == '') { ?>
+                    <script>
+                        var like_button=document.getElementById('like');
+                        var unlike_button = document.getElementById('unlike');
+                        unlike_button.style.display="none";
+                    </script>
+                    <?php
+                    }else{
+                    ?> 
+                    <script>
+                        var like_button=document.getElementById('like');
+                        var unlike_button = document.getElementById('unlike');
+                        like_button.style.display="none";
+                    </script>
+                    <?php } ?>
+                    
+                   
                     <p id="love">
                         <span><?php echo number_format($row['react']) ?></span>
                     </p>
@@ -345,7 +368,6 @@ include("components/mobile.php");
 
     /* Select the text field */
     copyText.select("copy");
-    copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
     /* Copy the text inside the text field */
     navigator.clipboard.writeText(copyText.value);
@@ -359,12 +381,11 @@ include("components/mobile.php");
         var like_button=document.getElementById('like');
         var unlike_button = document.getElementById('unlike');
         var post = $("#post_id").val();
-        unlike_button.style.display="none";
 
         function like(){
         like_button.style.display="none";
         unlike_button.style.display="block";
-        var like = '+1';
+        var like = '1';
         $.ajax({
               type: "post",
               url: "../functions/init.php",
