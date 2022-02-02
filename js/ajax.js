@@ -162,34 +162,28 @@ $(document).ready(function () {
 
     $("#comment_btn").click(function() {
       
+      //adds 
       var comment = $("#content").val();
       var post = $("#post_id").val();
       var commentId = $("#responseid").val();
-      var num_com = $("#com").val();
+      var num_com = $("#comm").val();
       var num_com = parseInt(num_com);
       var num = num_com + 1;
-      console.log(num);
-      $.ajax({
-              type: "post",
-              url: "../functions/init.php",
-              data: { num: num, post: post },
-              success: function (data) {
-                $("#com").html(data);
-              },
-            });
-        
-      // $("#com").html(num);
-      // document.getElementById('com').value = num;
+      
+      document.getElementById('comm').value = num;
+      document.getElementById('com').innerHTML = num;
+
       if (commentId === '') {
         var commentId = '0';
       }
       if (comment == "" || comment == null ) {
         $("#msg").html("Write a comment");
       }else{
+
         $.ajax({
               type: "post",
               url: "../functions/init.php",
-              data: { comment: comment, post: post, commentId:commentId },
+              data: { comment: comment, post: post, commentId: commentId, num: num },
               success: function (data) {
                 $("#show").html(data);
               },

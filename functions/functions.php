@@ -678,11 +678,12 @@ if (isset($_POST['unlike']) && isset($_POST['post'])) {
       
  // Input Comment into DB
 
-if(isset($_POST['comment']) && isset($_POST['post'])) {
+if(isset($_POST['comment']) && isset($_POST['post']) && isset($_POST['num'])) {
  	$comment 	 = clean(escape($_POST['comment']));
 	$post 	 = clean(escape($_POST['post']));
 	$date    = date('Y-m-d');
 	$commentId = clean(escape($_POST['commentId']));
+	$new = $_POST['num'];
 
 	user_details();
 
@@ -692,7 +693,9 @@ if(isset($_POST['comment']) && isset($_POST['post'])) {
 	$sql.= "VALUES('$post', '$comment', '$user', '$date', '$commentId')";
 	$result = query($sql);
 
-	
+	//Updates the number of comments in comments table
+	$sqll = "UPDATE article SET `comment` = '$new' WHERE `sn` = '$post'";;
+	$results = query($sqll);
 
 	$ssl = "SELECT * FROM comments WHERE `post_id` = '$post' AND `parent_id` = '0' ORDER BY `id` DESC";
     $rsl = query($ssl);
@@ -735,14 +738,5 @@ if(isset($_POST['comment']) && isset($_POST['post'])) {
 //End Input Comment into DB******//
 
 
-if (isset($_POST['num']) && isset($_POST['post'])) {
-	$new = $_POST['num'];
-	$post = $_POST['post'];
-	$sqll = "UPDATE article SET `comment` = '$new' WHERE `sn` = '$post'";;
-	$results = query($sqll);
 
-	echo '<p><?php echo $new; ?></p>';
-	
-
-}
 ?>
