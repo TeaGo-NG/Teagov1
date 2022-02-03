@@ -21,7 +21,7 @@ if (!isset($_GET['read'])) {
 
 if (row_count($res) == "") {
         
-      redirect("./opps");  
+      redirect("./");  
 }else{
     $row  = mysqli_fetch_array($res);
     
