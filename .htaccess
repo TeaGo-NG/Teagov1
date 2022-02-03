@@ -10,7 +10,7 @@ RewriteRule ^(.*)$ $1.php [NC,L]
 RewriteEngine On    # Turn on the rewriting engine
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^home/([A-Za-z0-9_-]+)?$ /post?read=$1 [L]    # Handle page requests
+RewriteRule ^home/([A-Za-z0-9_-]+)$ /post?read=$1 [L]    # Handle page requests
 
 
 
