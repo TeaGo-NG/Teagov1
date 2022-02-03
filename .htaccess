@@ -10,9 +10,7 @@ RewriteRule ^(.*)$ $1.php [NC,L]
 RewriteEngine On    # Turn on the rewriting engine
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^/([A-Za-z0-9_-]+)\$ /post.php?read=$1 [L,NC]    # Handle page requests
+RewriteRule ^([A-Za-z0-9_-]+)?$ /post.php?read=$1 [L]    # Handle page requests
 
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^cose.teagonig\.com [NC]
-RewriteCond %{SERVER_PORT} 80
-RewriteRule ^(.*)$ https://cose.teagonig.com/$1 [R,L]
+
+
