@@ -104,7 +104,7 @@ while($row = mysqli_fetch_array($res)) {
             </div>
             <!-- post title start -->
             <div class="post-content">
-                <a href="./post?read=<?php echo $row['articleurl'] ?>" class="text-dark">
+                <a href="./<?php echo $row['articleurl'] ?>" class="text-dark">
                     <b>
                         <p class="post-desc">
                             <?php echo ucwords($row['title']) ?>
