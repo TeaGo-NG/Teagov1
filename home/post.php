@@ -226,7 +226,7 @@ include("components/mobile.php");
                         <textarea name="share" class="" style="border-radius: 20px; background-color: #e6e6e6; width: 100%; height: 40px; padding: 10px; border-color: #999999; overflow: hidden;" aria-disabled="true" placeholder=" Post Comment!" id="content" onclick="clear()"></textarea>
                         </div>
                         <div class="" style="width: 20%; margin-left: 4px">
-                            <button type="button" id="comment_btn"  class="post-share-btn">Post</button>
+                            <button type="button" id="comment_btn"  class="post-share-btn" style="background-color: #be1e2d;">Post</button>
                         </div>
                     </div>
                     

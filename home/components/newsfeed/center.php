@@ -150,19 +150,20 @@
                     $ssl = "SELECT * FROM likes WHERE `post` = '$post' AND `user` = '$user'";
                     $rsl = query($ssl);
                     $count=mysqli_num_rows($rsl); 
-                    if ($count = '') { ?>
-                    <script>
-                        var like_button=document.getElementById('like'+<?php echo $row['sn']; ?>);
-                        var unlike_button = document.getElementById('unlike'+<?php echo $row['sn']; ?>);
-                        like_button.style.display="none";
-                    </script>
-                    <?php
-                    }else{
-                    ?> 
+                    if (empty($count)) { ?>
                     <script>
                         var like_button=document.getElementById('like'+<?php echo $row['sn']; ?>);
                         var unlike_button = document.getElementById('unlike'+<?php echo $row['sn']; ?>);
                         unlike_button.style.display="none";
+                    </script>
+                    <?php
+                    }else {
+                       
+                    ?> 
+                    <script>
+                        var like_button=document.getElementById('like'+<?php echo $row['sn']; ?>);
+                        var unlike_button = document.getElementById('unlike'+<?php echo $row['sn']; ?>);
+                        like_button.style.display="none";
                     </script>
                     <?php } ?>
                     
