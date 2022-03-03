@@ -70,14 +70,11 @@
         $sql = "SELECT * FROM article ORDER BY RAND() desc LIMIT 10";
 
         }
-$res = query($sql);
+    $res = query($sql);
 
-while($row = mysqli_fetch_array($res)) {
+    while($row = mysqli_fetch_array($res)) {
 
     $date = $row['dateposted'];
-
-
-
     ?>
 
         <!-- post status start -->
@@ -140,14 +137,40 @@ while($row = mysqli_fetch_array($res)) {
                 ?>
 
                 <div class="post-meta">
-                    <!-- <button class="post-meta-like" id="unlike" onclick="unlike()">
+                    <input type="text" id="post_id<?php echo $row['sn']; ?>" hidden value="<?php echo $row['sn']; ?>">
+                    <button class="post-meta-like" id="unlike<?php echo $row['sn']; ?>" onclick="unlike(<?php echo $row['sn']; ?>)">
                         <i class="fa fa-star fa-4x" style="color: #be1e2d; "></i>
-                        <span><?php echo number_format($row['react']) ?></span> 
-                    </button> -->
-                    <button class="post-meta-like" id="like">
-                        <i class="fa fa-star-o fa-4x"></i>
-                        <span><?php echo number_format($row['react']) ?></span> 
                     </button>
+                    <button class="post-meta-like" id="like<?php echo $row['sn']; ?>" onclick="like(<?php echo $row['sn']; ?>)">
+                        <i class="fa fa-star-o fa-4x"></i>
+                    </button>&nbsp;
+                    <?php
+                    $post = $row['sn'];
+                    $user = $t_users['user'];
+                    $ssl = "SELECT * FROM likes WHERE `post` = '$post' AND `user` = '$user'";
+                    $rsl = query($ssl);
+                    $count=mysqli_num_rows($rsl); 
+                    if ($count = '') { ?>
+                    <script>
+                        var like_button=document.getElementById('like'+<?php echo $row['sn']; ?>);
+                        var unlike_button = document.getElementById('unlike'+<?php echo $row['sn']; ?>);
+                        like_button.style.display="none";
+                    </script>
+                    <?php
+                    }else{
+                    ?> 
+                    <script>
+                        var like_button=document.getElementById('like'+<?php echo $row['sn']; ?>);
+                        var unlike_button = document.getElementById('unlike'+<?php echo $row['sn']; ?>);
+                        unlike_button.style.display="none";
+                    </script>
+                    <?php } ?>
+                    
+                   
+                    <p id="love<?php echo $row['sn']; ?>">
+                        <span><?php echo number_format($row['react']) ?></span>
+                    </p>
+
                     <ul class="comment-share-meta">
                         <li>
                             <button class="post-comment">

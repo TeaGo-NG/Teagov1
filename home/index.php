@@ -101,11 +101,12 @@ include("components/mobile.php");
     }
     </script>
     <script>
-        var like_button=document.getElementById('like');
-        var unlike_button = document.getElementById('unlike');
-        var post = $("#post_id").val();
+        
 
-        function like(){
+        function like(id){
+        var like_button=document.getElementById('like'+id);
+        var unlike_button = document.getElementById('unlike'+id);
+        var post = $("#post_id"+id).val();
         like_button.style.display="none";
         unlike_button.style.display="block";
         var like = '1';
@@ -114,12 +115,15 @@ include("components/mobile.php");
               url: "../functions/init.php",
               data: { like: like, post: post},
               success: function (data) {
-                $("#love").html(data);
+                $("#love"+id).html(data);
               },
             });
         }
 
-        function unlike(){
+        function unlike(id){
+        var like_button=document.getElementById('like'+id);
+        var unlike_button = document.getElementById('unlike'+id);
+        var post = $("#post_id"+id).val();
         like_button.style.display="block";
         unlike_button.style.display="none";
         var unlike = '1';
@@ -128,7 +132,7 @@ include("components/mobile.php");
               url: "../functions/init.php",
               data: { unlike: unlike, post: post},
               success: function (data) {
-                $("#love").html(data);
+                $("#love"+id).html(data);
               },
             });
         }
