@@ -174,7 +174,7 @@ function register($fname, $email, $uname, $pword) {
 
 	//open otp page
 	echo 'Loading... Please Wait!';
-	echo '<script>verify();</script>';
+	//echo '<script>verify();</script>';
 	 }
 
 

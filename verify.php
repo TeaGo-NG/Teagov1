@@ -29,7 +29,7 @@ if(!isset($_SESSION['usermail'])) {
 
         $_SESSION['user'] = $row['user'];
         
-        redirect("./");
+        redirect("./kyc");
     }
 }
 }
