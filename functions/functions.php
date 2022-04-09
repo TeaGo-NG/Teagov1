@@ -174,7 +174,7 @@ function register($fname, $email, $uname, $pword) {
 
 	//open otp page
 	echo 'Loading... Please Wait!';
-	//echo '<script>verify();</script>';
+	echo '<script>verify();</script>';
 	 }
 
 
@@ -722,33 +722,33 @@ if(isset($_POST['comment']) && isset($_POST['post']) && isset($_POST['num'])) {
     while($row = mysqli_fetch_array($rsl)) {
 
     ?>
-    					<div class=" row">
-                            <div class="" >
-                                <img style="max-height: 40px; max-width: 40px;" class="responsive" src="assets/images/log.png">
-                            </div>
-                            <div class="" style="max-width: 87%; padding-left: 20px;">
-                                <div style="border-radius: 10px; background-color: #e6e6e6;" >
-                                    <div class="share-text-field" style="height: fit-content ; border-radius: 15px;">
-                                        <div class="row">
-                                            <p class="col-12" style="margin: 7px"><strong><?php echo $row['user'];  ?></strong></p>
-                                        </div>
-                                        <div style="margin: -10px 10px 0px 10px"><?php echo $row['comment'];  ?>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                <!-- <small class="col-12"><?php echo $row['datecommented'];  ?></small> -->
-                                <span>
-                                    <small>
-                                        <strong>
-                                            <input type="text" name="" id="commentId" value="<?php echo $row['id']; ?>" hidden>
-                                            <p href="" onclick="reply()" style="color:#be1e2d; cursor: pointer;">Reply</p>
-                                        </strong>
-                                    </small>
-                                </span>
-                            </div>
-                            </div><br>
-    <?php 
+<div class=" row">
+    <div class="">
+        <img style="max-height: 40px; max-width: 40px;" class="responsive" src="assets/images/log.png">
+    </div>
+    <div class="" style="max-width: 87%; padding-left: 20px;">
+        <div style="border-radius: 10px; background-color: #e6e6e6;">
+            <div class="share-text-field" style="height: fit-content ; border-radius: 15px;">
+                <div class="row">
+                    <p class="col-12" style="margin: 7px"><strong><?php echo $row['user'];  ?></strong></p>
+                </div>
+                <div style="margin: -10px 10px 0px 10px"><?php echo $row['comment'];  ?>
+                </div>
+
+            </div>
+        </div>
+        <!-- <small class="col-12"><?php echo $row['datecommented'];  ?></small> -->
+        <span>
+            <small>
+                <strong>
+                    <input type="text" name="" id="commentId" value="<?php echo $row['id']; ?>" hidden>
+                    <p href="" onclick="reply()" style="color:#be1e2d; cursor: pointer;">Reply</p>
+                </strong>
+            </small>
+        </span>
+    </div>
+</div><br>
+<?php 
 	}
 	
    
