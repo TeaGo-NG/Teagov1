@@ -185,9 +185,10 @@ function mail_mailer($email, $ninn, $subj, $msg) {
 	$to = $email;
 	$from = "noreply@cose.teagonig.com";
 	
-	$headers = "From: " . $from . "\r\n";
-	$headers .= "Reply-To: ". $from . "\r\n";
-	$headers = "MIME-Version: 1.0\n" ;
+	$headers = "From: ".$from."\r\n";
+	$headers .= "Reply-To: ".$from."\r\n";
+	$headers .= "Return-Path: ".$from."\r\n";
+	$headers .= "MIME-Version: 1.0\n" ;
 	$headers .= "Content-Type: text/html; charset=\"iso-8859-1\"\n";
 	$headers .= "X-Priority: 1 (Highest)\n";
 	$headers .= "X-MSMail-Priority: High\n";
