@@ -193,6 +193,7 @@ function mail_mailer($email, $ninn, $subj, $msg) {
 	$headers .= "X-Priority: 1 (Highest)\n";
 	$headers .= "X-MSMail-Priority: High\n";
 	$headers .= "Importance: High\n";
+	$headers .= "Priority: Urgent\n";
 
 	
 	$subject = $subj;
