@@ -6,3 +6,11 @@ RewriteRule ^(.*)$ $1.html [NC,L]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.*)$ $1.php [NC,L] 
+
+RewriteEngine On    
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^home/([\w-]+)$ home/post.php?read=$1 [L] 
+
+
+

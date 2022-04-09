@@ -633,4 +633,129 @@ if(isset($_POST['title']) && isset($_POST['gist']) ) {
 	echo "Loading... Please wait";
 	echo '<script>window.location.href ="./"</script>';
 }
+
+//get page url
+
+    if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {  
+         $url = "https://";   
+    }else{  
+         $url = "http://";   
+    // Append the host(domain name, ip) to the URL.   
+    $url.= $_SERVER['HTTP_HOST'];   
+    
+    // Append the requested resource location to the URL   
+    $url.= $_SERVER['REQUEST_URI']; }  
+
+//Like Button
+if (isset($_POST['like']) && isset($_POST['post'])) {
+	$post = $_POST['post'];
+	$var = $_POST['like'];
+
+
+	$sql = "SELECT * FROM `article` WHERE `sn` = '$post'";
+	$rsl = query($sql);
+	$row = mysqli_fetch_array($rsl);
+	$reac = $row['react'];
+	$react_now = $reac + $var;
+
+	//Updates number of likes in comments table
+	$up = "UPDATE article SET `react` = '$react_now' WHERE `sn` = '$post'";
+	$ud = query($up);
+
+	//Updates the like details in the like table
+	user_details();
+	$user = $t_users['user'];
+	$date    = date('Y-m-d');
+	$sql = "INSERT INTO likes(`post`, `user`, `dateliked`)";
+	$sql.= "VALUES('$post', '$user', '$date')";
+	$result = query($sql);
+
+	?><span><?php echo $react_now; ?></span> <?php
+}
+
+//unlike
+if (isset($_POST['unlike']) && isset($_POST['post'])) {
+	$post = $_POST['post'];
+	$var = $_POST['unlike'];
+	$sql = "SELECT * FROM `article` WHERE `sn` = '$post'";
+	$rsl = query($sql);
+	$row = mysqli_fetch_array($rsl);
+	$reac = $row['react'];
+	$react_now = $reac - $var;
+	$up = "UPDATE article SET `react` = '$react_now' WHERE `sn` = '$post'";
+	$ud = query($up);
+
+	//delete user like details from database
+	user_details();
+	$user = $t_users['user'];
+	$date    = date('Y-m-d');
+	$sql = "DELETE FROM likes WHERE `post` = '$post' AND `user` = '$user' ";
+	$result = query($sql);
+
+	?><span><?php echo $react_now; ?></span> <?php
+}
+      
+ // Input Comment into DB
+
+if(isset($_POST['comment']) && isset($_POST['post']) && isset($_POST['num'])) {
+ 	$comment 	 = clean(escape($_POST['comment']));
+	$post 	 = clean(escape($_POST['post']));
+	$date    = date('Y-m-d');
+	$commentId = clean(escape($_POST['commentId']));
+	$new = $_POST['num'];
+
+	user_details();
+
+	$user = $t_users['user'];
+
+	$sql = "INSERT INTO comments(`post_id`, `comment`, `user`, `datecommented`, `parent_id`)";
+	$sql.= "VALUES('$post', '$comment', '$user', '$date', '$commentId')";
+	$result = query($sql);
+
+	//Updates the number of comments in comments table
+	$sqll = "UPDATE article SET `comment` = '$new' WHERE `sn` = '$post'";;
+	$results = query($sqll);
+
+	$ssl = "SELECT * FROM comments WHERE `post_id` = '$post' AND `parent_id` = '0' ORDER BY `id` DESC";
+    $rsl = query($ssl);
+
+    while($row = mysqli_fetch_array($rsl)) {
+
+    ?>
+    					<div class=" row">
+                            <div class="" >
+                                <img style="max-height: 40px; max-width: 40px;" class="responsive" src="assets/images/log.png">
+                            </div>
+                            <div class="" style="max-width: 87%; padding-left: 20px;">
+                                <div style="border-radius: 10px; background-color: #e6e6e6;" >
+                                    <div class="share-text-field" style="height: fit-content ; border-radius: 15px;">
+                                        <div class="row">
+                                            <p class="col-12" style="margin: 7px"><strong><?php echo $row['user'];  ?></strong></p>
+                                        </div>
+                                        <div style="margin: -10px 10px 0px 10px"><?php echo $row['comment'];  ?>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <!-- <small class="col-12"><?php echo $row['datecommented'];  ?></small> -->
+                                <span>
+                                    <small>
+                                        <strong>
+                                            <input type="text" name="" id="commentId" value="<?php echo $row['id']; ?>" hidden>
+                                            <p href="" onclick="reply()" style="color:#be1e2d; cursor: pointer;">Reply</p>
+                                        </strong>
+                                    </small>
+                                </span>
+                            </div>
+                            </div><br>
+    <?php 
+	}
+	
+   
+}
+ 
+//End Input Comment into DB******//
+
+
+
 ?>

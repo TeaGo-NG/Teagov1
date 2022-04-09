@@ -57,7 +57,7 @@ include("components/mobile.php");
 
     <!-- JS
 ============================================ -->
-
+    
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
     <!-- jQuery JS -->
@@ -83,7 +83,62 @@ include("components/mobile.php");
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
     <script src="../js/ajax.js"></script>
+    <script>
+        function copy() {
+    /* Get the text field */
+    var copyText = document.getElementById("copy");
 
+    /* Select the text field */
+    copyText.select("copy");
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyText.value);
+
+    /* Alert the copied text */
+
+    document.getElementById("copied").innerHTML = "Post Link Copied!";;
+    }
+    </script>
+    <script>
+        
+
+        function like(id){
+        var like_button=document.getElementById('like'+id);
+        var unlike_button = document.getElementById('unlike'+id);
+        var post = $("#post_id"+id).val();
+        like_button.style.display="none";
+        unlike_button.style.display="block";
+        var like = '1';
+        $.ajax({
+              type: "post",
+              url: "../functions/init.php",
+              data: { like: like, post: post},
+              success: function (data) {
+                $("#love"+id).html(data);
+              },
+            });
+        }
+
+        function unlike(id){
+        var like_button=document.getElementById('like'+id);
+        var unlike_button = document.getElementById('unlike'+id);
+        var post = $("#post_id"+id).val();
+        like_button.style.display="block";
+        unlike_button.style.display="none";
+        var unlike = '1';
+        $.ajax({
+              type: "post",
+              url: "../functions/init.php",
+              data: { unlike: unlike, post: post},
+              success: function (data) {
+                $("#love"+id).html(data);
+              },
+            });
+        }
+    </script>
+
+    
 </body>
 
 </html>

@@ -49,7 +49,7 @@
     <!-- Flat Icon CSS -->
     <link rel="stylesheet" href="assets/css/vendor/flaticon.css">
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css">
     <!-- audio & video player CSS -->
     <link rel="stylesheet" href="assets/css/plugins/plyr.css">
     <!-- Slick CSS -->
@@ -62,5 +62,6 @@
     <link rel="stylesheet" href="assets/css/plugins/lightgallery.min.css">
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../fonts/material-icon/css/material-design-iconic-font.min.css">
 
 </head>

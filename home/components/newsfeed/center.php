@@ -1,4 +1,4 @@
-<div class="col-lg-6 order-1 order-lg-2">
+ <div class="col-lg-6 order-1 order-lg-2">
     <!-- share box start -->
     <div class="card card-small">
         <div class="share-box-inner">
@@ -70,14 +70,11 @@
         $sql = "SELECT * FROM article ORDER BY RAND() desc LIMIT 10";
 
         }
-$res = query($sql);
+    $res = query($sql);
 
-while($row = mysqli_fetch_array($res)) {
+    while($row = mysqli_fetch_array($res)) {
 
     $date = $row['dateposted'];
-
-
-
     ?>
 
         <!-- post status start -->
@@ -140,9 +137,41 @@ while($row = mysqli_fetch_array($res)) {
                 ?>
 
                 <div class="post-meta">
-                    <button class="post-meta-like">
-                        <i class="bi bi-love"></i>
-                        <span><?php echo number_format($row['react']) ?></span> </button>
+                    <input type="text" id="post_id<?php echo $row['sn']; ?>" hidden value="<?php echo $row['sn']; ?>">
+                    <button class="post-meta-like" id="unlike<?php echo $row['sn']; ?>" onclick="unlike(<?php echo $row['sn']; ?>)">
+                        <i class="fa fa-star fa-4x" style="color: #be1e2d; "></i>
+                    </button>
+                    <button class="post-meta-like" id="like<?php echo $row['sn']; ?>" onclick="like(<?php echo $row['sn']; ?>)">
+                        <i class="fa fa-star-o fa-4x"></i>
+                    </button>&nbsp;
+                    <?php
+                    $post = $row['sn'];
+                    $user = $t_users['user'];
+                    $ssl = "SELECT * FROM likes WHERE `post` = '$post' AND `user` = '$user'";
+                    $rsl = query($ssl);
+                    $count=mysqli_num_rows($rsl); 
+                    if (empty($count)) { ?>
+                    <script>
+                        var like_button=document.getElementById('like'+<?php echo $row['sn']; ?>);
+                        var unlike_button = document.getElementById('unlike'+<?php echo $row['sn']; ?>);
+                        unlike_button.style.display="none";
+                    </script>
+                    <?php
+                    }else {
+                       
+                    ?> 
+                    <script>
+                        var like_button=document.getElementById('like'+<?php echo $row['sn']; ?>);
+                        var unlike_button = document.getElementById('unlike'+<?php echo $row['sn']; ?>);
+                        like_button.style.display="none";
+                    </script>
+                    <?php } ?>
+                    
+                   
+                    <p id="love<?php echo $row['sn']; ?>">
+                        <span><?php echo number_format($row['react']) ?></span>
+                    </p>
+
                     <ul class="comment-share-meta">
                         <li>
                             <button class="post-comment">
@@ -151,7 +180,7 @@ while($row = mysqli_fetch_array($res)) {
                             </button>
                         </li>
                         <li>
-                            <button class="post-share">
+                            <button class="post-share" data-toggle="modal" data-target="#modal">
                                 <i class="bi bi-share"></i>
                             </button>
                         </li>
@@ -160,6 +189,31 @@ while($row = mysqli_fetch_array($res)) {
             </div>
         </div>
         <!-- post status end -->
+        <div class="modal fade" id="modal">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div style="border-radius: 10px 10px 10px 10px; border-style: solid; border-color: #be1e2d; border-width: 2px;" class="modal-content">
+                      <div class="modal-body">
+                        <div>Share:</div>
+                        <div style="color: white;" class="text-center">
+                            <a href="https://api.whatsapp.com/send?text=<?php echo $url;?>" data-action="share/whatsapp/share" data-media="<?php echo $row['photo']; ?>">
+                                <span class="fa fa-whatsapp fa-3x" style="color:#4AC959; margin:20px;"></span></a>
+                            <a href="http://www.facebook.com/sharer.php?u=<?php echo $url; ?><?php echo $row['articleurl'] ?>"target="_blank" title="Facebook" data-media="<?php echo $row['photo']; ?>">
+                                <span class="fa fa-facebook fa-3x" style="color:#3b5998; margin:20px;"></span></a>
+                            <a href="http://twitter.com/home?status=<?php echo $url; ?><?php echo $row['articleurl'] ?>" target="_blank" title="Twitter" data-media="<?php echo $row['photo']; ?>">
+                                <span class="fa fa-twitter fa-3x" style="color:#00acee; margin:20px;"></span></a>
+                            <span class="fa fa-copy fa-3x" style="color:#be1e2d; margin:20px;" onclick="copy()"></span>
+                            <div><h6 id="copied"></h6></div>
+                            <?php
+                            $link = './post?read=';
+                            $pst = $row['articleurl'];
+                            ?>
+                            <input type="text" hidden value="<?php echo$url; echo $link; echo $pst; ?>" id="copy">
+                            
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
         <?php
 }
