@@ -357,8 +357,8 @@ if(isset($_POST['fgpword']) && isset($_POST['fgcpword'])) {
 		
 		
 		echo 'Loading... Please Wait';
-
-		echo '<script>window.location.href ="./home"</script>';
+		echo '<script>window.location.href ="./kyc"</script>';
+		//echo '<script>window.location.href ="./home"</script>';
 		
 	}
 }
