@@ -5,7 +5,7 @@ if(!isset($_SESSION['user'])) {
     redirect("./welcome");
 
 } else {
-header("refresh:5;url=https://t.me/+8cd_YJZYxzczODAO");
+header("refresh:5;url=https://t.me/+8cd_YJZYxzczODA0");
 
 ?>
 <!DOCTYPE html>
@@ -75,7 +75,7 @@ header("refresh:5;url=https://t.me/+8cd_YJZYxzczODAO");
                         <p>We are redirecting you to our waiting room in the next 5 seconds</p>
 
                         <div class="form-group form-button">
-                            <a style="text-decoration: none;" href="https://t.me/+8cd_YJZYxzczODAO"
+                            <a style="text-decoration: none;" href="https://t.me/+8cd_YJZYxzczODA0"
                                 class="button form-submit">Take me there
                                 manually</a>
                         </div>
