@@ -1,5 +1,10 @@
 <?php
 include("functions/init.php");
+if(!isset($_SESSION['user'])) {
+    
+    redirect("./welcome");
+
+} else {
 header("refresh:5;url=https://t.me/+8cd_YJZYxzczODAO");
 
 ?>
@@ -90,3 +95,6 @@ header("refresh:5;url=https://t.me/+8cd_YJZYxzczODAO");
 <script src="js/main.js"></script>
 
 </html>
+<?php
+}
+?>

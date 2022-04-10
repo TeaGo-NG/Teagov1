@@ -281,8 +281,8 @@ function mail_mailer($email, $ninn, $subj, $msg) {
 						$_SESSION['user'] = $username;
 
 						echo 'Loading... Please Wait';	
-
-						echo '<script>window.location.href ="./home"</script>';	
+						echo '<script>window.location.href ="./kyc"</script>';	
+						//echo '<script>window.location.href ="./home"</script>';	
 					} else {
 
 						echo "This username doesn't have an account.";
