@@ -96,5 +96,6 @@ header("refresh:5;url=https://t.me/+8cd_YJZYxzczODA0");
 
 </html>
 <?php
+session_destroy();
 }
 ?>
