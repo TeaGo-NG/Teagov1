@@ -162,9 +162,15 @@ function register($fname, $email, $uname, $pword) {
 	$activator = md5(otp());
 	
 	$sql = "INSERT INTO user(`id`, `fname`, `user`, `email`, `pword`, `dreg`, `active`, `activator`)";
-	$sql.= " VALUES('1', '$fnam', '$unam', '$emai', '$pwor', '$datereg', '0', '$activator')";
+	$sql.= "VALUES('1', '$fnam', '$unam', '$emai', '$pwor', '$datereg', '0', '$activator')";
 	$result = query($sql);
 
+	$_SESSION['user'] = $unam;
+
+	echo 'Loading... Please Wait!';
+	echo '<script>window.location.href ="./kyc"</script>';
+
+	/*
 	//redirect to verify function
 	$subj = "VERIFY YOUR EMAIL";
 	$msg  = "Hi there! <br /><br />Kindly use the button below to activate your account;";
@@ -175,6 +181,7 @@ function register($fname, $email, $uname, $pword) {
 	//open otp page
 	echo 'Loading... Please Wait!';
 	echo '<script>verify();</script>';
+	*/
 	 }
 
 
@@ -264,6 +271,12 @@ function mail_mailer($email, $ninn, $subj, $msg) {
 					$ups = "UPDATE user SET `activator` = '$vnt' WHERE `user` = '$username'";
 					$ues = query($ups);
 
+					$_SESSION['user'] = $username;
+
+					echo 'Loading... Please Wait!';
+					echo '<script>window.location.href ="./kyc"</script>';
+
+					/*
 					$subj = "VERIFY YOUR EMAIL";
 					$msg  = "Hi there! <br /><br />Kindly use the button below to activate your account;";
 
@@ -272,7 +285,7 @@ function mail_mailer($email, $ninn, $subj, $msg) {
 					//open verification page
 					echo 'Loading... Please Wait!';
 					echo '<script>verify();</script>';
-	
+					*/
 					
 				}  else {
 
