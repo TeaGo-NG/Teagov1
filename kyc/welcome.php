@@ -54,7 +54,7 @@ include("components/head.php");
                 <!-- Default Checkboxes and radios & Default checkboxes and radios -->
                 <div class="col-xl-12">
                   <div class="card mb-4">
-                    <h5 class="card-header">Courses Categories</h5>
+                    <h5 class="card-header fw-bolder text-primary">Courses Categories</h5>
                     <!-- Checkboxes and Radios -->
 
                     <form name="form1" onload="savechoice();">
@@ -64,31 +64,31 @@ include("components/head.php");
                         <div class="col-md-3">
                           <div class="form-check mt-3">
                             <input class="form-check-input" name="ckb" type="checkbox" value="Academics / Career" id="defaultCheck1" onclick='chkcontrol(0)'; />
-                            <label class="form-check-label" for="defaultCheck1"> Academics / Career </label>
+                            <label class="form-check-label  text-primary" for="defaultCheck1"> Academics / Career </label>
                           </div>
                           <div class="form-check">
                             <input class="form-check-input" name="ckb" type="checkbox" value="Politics" id="defaultCheck2" onclick='chkcontrol(1)';/>
-                            <label class="form-check-label" for="defaultCheck2"> Politics </label>
+                            <label class="form-check-label text-primary" for="defaultCheck2"> Politics </label>
                           </div>
                           <div class="form-check">
                             <input class="form-check-input" name="ckb" type="checkbox" value="Techonology" id="defaultCheck3" onclick='chkcontrol(2)';/>
-                            <label class="form-check-label" for="defaultCheck3"> Techonology </label>
+                            <label class="form-check-label text-primary" for="defaultCheck3"> Techonology </label>
                           </div>
                         </div>
     
 
                         <div class="col-md-3">
-                        <div class="form-check mt-3">
-                          <input class="form-check-input" name="ckb" type="checkbox" value="Business / Entrepreneur" id="defaultCheck1" onclick='chkcontrol(3)';/>
-                          <label class="form-check-label" for="defaultCheck1"> Business / Entrepreneur </label>
+                        <div class="form-check mt-md-3">
+                          <input class="form-check-input" name="ckb" type="checkbox" value="Business / Entrepreneur" id="defaultCheck4" onclick='chkcontrol(3)';/>
+                          <label class="form-check-label text-primary" for="defaultCheck4"> Business / Entrepreneur </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" name="ckb" type="checkbox" value="Spirituals" id="defaultCheck2" onclick='chkcontrol(4)';/>
-                          <label class="form-check-label" for="defaultCheck2"> Spirituals </label>
+                          <input class="form-check-input" name="ckb" type="checkbox" value="Spirituals" id="defaultCheck5" onclick='chkcontrol(4)';/>
+                          <label class="form-check-label text-primary" for="defaultCheck5"> Spirituals </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" name="ckb" type="checkbox" value="Entertainment / Lifestyle" id="defaultCheck3" onclick='chkcontrol(5)';/>
-                          <label class="form-check-label" for="defaultCheck3"> Entertainment / Lifestyle </label>
+                          <input class="form-check-input" name="ckb" type="checkbox" value="Entertainment / Lifestyle" id="defaultCheck6" onclick='chkcontrol(5)';/>
+                          <label class="form-check-label text-primary" for="defaultCheck6"> Entertainment / Lifestyle </label>
                         </div>
                         
                       </div>
