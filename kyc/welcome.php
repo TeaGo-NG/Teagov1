@@ -30,7 +30,7 @@ include("components/head.php");
                             <div class="card-body">
                               <h5 class="card-title text-primary">Welcome <span style="color: black;"> <?php echo Ucwords($_SESSION['user']) ?>!</span> 🎉</h5>
                               <p class="mb-4">
-                                Kindly select <span class="fw-bold"> 3 </span> categories of training you'll love to attend to.
+                                Kindly select <span class="fw-bold"> 3 options </span> from the courses categories below.
                               </p>
                             </div>
                           </div>
@@ -57,7 +57,7 @@ include("components/head.php");
                     <h5 class="card-header">Courses Categories</h5>
                     <!-- Checkboxes and Radios -->
 
-                    <form name="form1">
+                    <form name="form1" onload="savechoice();">
                     <div class="card-body">
                       <div class="row gy-3">
                      
@@ -97,7 +97,39 @@ include("components/head.php");
 
                       <div class="col-6">
                       <label class="form-label" for="showToastPlacement">&nbsp;</label>
-                      <button id="showToastPlacement" class="btn btn-primary d-block">Save My Choice</button>
+                     <!-- Bottom Offcanvas -->
+                     <div class="col-lg-3 col-md-6">
+                      <div class="mt-3">
+                        <button class="btn btn-primary" type="button" id="savechoice" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"
+                        >
+                         Save my Choice
+                        </button>
+                        <div
+                          class="offcanvas offcanvas-bottom"
+                          tabindex="-1"
+                          id="offcanvasBottom"
+                          aria-labelledby="offcanvasBottomLabel"
+                        >
+                          <div class="offcanvas-header">
+                            <h5 id="offcanvasBottomLabel" class="offcanvas-title">Yipeee! @<?php echo $_SESSION['user'] ?></h5>
+                            <button
+                              type="button"
+                              class="btn-close text-reset"
+                              data-bs-dismiss="offcanvas"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <div class="offcanvas-body">
+                            <p>
+                              You've successfully completed your registration! <br/> Let's begin learning something new. Shall We?
+                            </p>
+                            <button type="button" class="btn btn-primary me-2">Yes! Let's Shoot</button>
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas">
+                             Hold on pls!
+                            </button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     </div>
                     </form>
@@ -112,7 +144,6 @@ include("components/head.php");
 
 
             <?php include("components/footer.php"); ?>
-
             <div class="content-backdrop fade"></div>
           </div>
           <!-- Content wrapper -->
@@ -120,30 +151,36 @@ include("components/head.php");
         <!-- / Layout page -->
       </div>
 
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
     
 
 
+
     <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+   <!-- build:js assets/vendor/js/core.js -->
+   <script src="assets/vendor/libs/jquery/jquery.js"></script>
     <script src="assets/vendor/libs/popper/popper.js"></script>
     <script src="assets/vendor/js/bootstrap.js"></script>
     <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-
+    
       <!-- Page JS -->
-      <script src="../assets/js/ui-toasts.js"></script>
+      <script src="assets/js/ui-toasts.js"></script>
 
     <script src="assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
 
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
-    <script type="text/javascript">
+    <script>
       function chkcontrol(j) {
       var total=0;
       for(var i=0; i < document.form1.ckb.length; i++){
       if(document.form1.ckb[i].checked){
-      total =total +1;}
+      total =total +1;
+    }
       if(total > 3){
       alert("Please Select only three") 
       document.form1.ckb[j].checked = false ;
@@ -151,6 +188,13 @@ include("components/head.php");
 }
 }
 } 
+</script>
+<script>
+   document.getElementById("form1").addEventListener("load", myFunction);
+
+myFunction() {
+document.getElementById("savechoice").disabled = true;
+}
 </script>
   </body>
 </html>
