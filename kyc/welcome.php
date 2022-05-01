@@ -56,46 +56,51 @@ include("components/head.php");
                   <div class="card mb-4">
                     <h5 class="card-header">Courses Categories</h5>
                     <!-- Checkboxes and Radios -->
+
+                    <form name="form1">
                     <div class="card-body">
                       <div class="row gy-3">
+                     
                         <div class="col-md-3">
-                        
                           <div class="form-check mt-3">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                            <input class="form-check-input" name="ckb" type="checkbox" value="Academics / Career" id="defaultCheck1" onclick='chkcontrol(0)'; />
                             <label class="form-check-label" for="defaultCheck1"> Academics / Career </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2"/>
+                            <input class="form-check-input" name="ckb" type="checkbox" value="Politics" id="defaultCheck2" onclick='chkcontrol(1)';/>
                             <label class="form-check-label" for="defaultCheck2"> Politics </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck3"/>
+                            <input class="form-check-input" name="ckb" type="checkbox" value="Techonology" id="defaultCheck3" onclick='chkcontrol(2)';/>
                             <label class="form-check-label" for="defaultCheck3"> Techonology </label>
                           </div>
-
                         </div>
     
 
                         <div class="col-md-3">
-                        
                         <div class="form-check mt-3">
-                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                          <input class="form-check-input" name="ckb" type="checkbox" value="Business / Entrepreneur" id="defaultCheck1" onclick='chkcontrol(3)';/>
                           <label class="form-check-label" for="defaultCheck1"> Business / Entrepreneur </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2"/>
+                          <input class="form-check-input" name="ckb" type="checkbox" value="Spirituals" id="defaultCheck2" onclick='chkcontrol(4)';/>
                           <label class="form-check-label" for="defaultCheck2"> Spirituals </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck3"/>
+                          <input class="form-check-input" name="ckb" type="checkbox" value="Entertainment / Lifestyle" id="defaultCheck3" onclick='chkcontrol(5)';/>
                           <label class="form-check-label" for="defaultCheck3"> Entertainment / Lifestyle </label>
                         </div>
                         
                       </div>
-  
-                      </div>
-                    </div>
                    
+                      </div>
+
+                      <div class="col-6">
+                      <label class="form-label" for="showToastPlacement">&nbsp;</label>
+                      <button id="showToastPlacement" class="btn btn-primary d-block">Save My Choice</button>
+                    </div>
+                    </div>
+                    </form>
                    
                   </div>
                 </div>
@@ -125,10 +130,27 @@ include("components/head.php");
     <script src="assets/vendor/js/bootstrap.js"></script>
     <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
+      <!-- Page JS -->
+      <script src="../assets/js/ui-toasts.js"></script>
+
     <script src="assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
 
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+    <script type="text/javascript">
+      function chkcontrol(j) {
+      var total=0;
+      for(var i=0; i < document.form1.ckb.length; i++){
+      if(document.form1.ckb[i].checked){
+      total =total +1;}
+      if(total > 3){
+      alert("Please Select only three") 
+      document.form1.ckb[j].checked = false ;
+      return false;
+}
+}
+} 
+</script>
   </body>
 </html>
