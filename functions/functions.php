@@ -168,7 +168,7 @@ function register($fname, $email, $uname, $pword) {
 	$_SESSION['user'] = $unam;
 
 	echo 'Loading... Please Wait!';
-	echo '<script>window.location.href ="./kyc"</script>';
+	echo '<script>window.location.href ="kyc/./welcome"</script>';
 
 	/*
 	//redirect to verify function
@@ -274,7 +274,7 @@ function mail_mailer($email, $ninn, $subj, $msg) {
 					$_SESSION['user'] = $username;
 
 					echo 'Loading... Please Wait!';
-					echo '<script>window.location.href ="./kyc"</script>';
+					echo '<script>window.location.href ="kyc/./welcome"</script>';
 
 					/*
 					$subj = "VERIFY YOUR EMAIL";
@@ -294,7 +294,7 @@ function mail_mailer($email, $ninn, $subj, $msg) {
 						$_SESSION['user'] = $username;
 
 						echo 'Loading... Please Wait';	
-						echo '<script>window.location.href ="./kyc"</script>';	
+						echo '<script>window.location.href ="kyc/./welcome"</script>';	
 						//echo '<script>window.location.href ="./home"</script>';	
 					} else {
 
@@ -370,7 +370,7 @@ if(isset($_POST['fgpword']) && isset($_POST['fgcpword'])) {
 		
 		
 		echo 'Loading... Please Wait';
-		echo '<script>window.location.href ="./kyc"</script>';
+		echo '<script>window.location.href ="kyc/./welcome"</script>';
 		//echo '<script>window.location.href ="./home"</script>';
 		
 	}
