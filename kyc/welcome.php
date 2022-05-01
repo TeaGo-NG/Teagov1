@@ -52,7 +52,7 @@ include("components/head.php");
 
 
                 <!-- Default Checkboxes and radios & Default checkboxes and radios -->
-                <div class="col-xl-6">
+                <div class="col-xl-12">
                   <div class="card mb-4">
                     <h5 class="card-header">Courses Categories</h5>
                     <!-- Checkboxes and Radios -->
