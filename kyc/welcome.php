@@ -57,7 +57,7 @@ include("components/head.php");
                     <h5 class="card-header fw-bolder text-primary">Courses Categories</h5>
                     <!-- Checkboxes and Radios -->
 
-                    <form name="form1" onload="savechoice();">
+                    <form name="form1" id="form1">
                     <div class="card-body">
                       <div class="row gy-3">
                      
@@ -100,8 +100,7 @@ include("components/head.php");
                      <!-- Bottom Offcanvas -->
                      <div class="col-lg-3 col-md-6">
                       <div class="mt-3">
-                        <button class="btn btn-primary" type="button" id="choicer" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"
-                        >
+                        <button class="btn btn-primary" type="button" id="test" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
                          Save my Choice
                         </button>
                         <div
@@ -186,13 +185,6 @@ include("components/head.php");
       document.form1.ckb[j].checked = false ;
       return false;
 }
-
-if(total == 1 || total == 2){
-      var a = document.getElementById("choicer").value;
-      alert(a); 
-      document.form1.ckb[j].checked = false ;
-      return false;
-}
 }
 } 
 </script>
@@ -200,7 +192,7 @@ if(total == 1 || total == 2){
 document.getElementById("form1").addEventListener("load", myFunction);
 
 function myFunction() {
-document.getElementById("choicer").disabled = true;
+  document.getElementById("test").hidden=true;
 }
 </script>
   </body>
