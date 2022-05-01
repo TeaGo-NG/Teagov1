@@ -78,18 +78,18 @@ include("components/head.php");
     
 
                         <div class="col-md-3">
-                        <div class="form-check mt-md-3">
-                          <input class="form-check-input" name="ckb" type="checkbox" value="Business / Entrepreneur" id="defaultCheck4" onclick='chkcontrol(3)';/>
-                          <label class="form-check-label text-primary" for="defaultCheck4"> Business / Entrepreneur </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" name="ckb" type="checkbox" value="Spirituals" id="defaultCheck5" onclick='chkcontrol(4)';/>
-                          <label class="form-check-label text-primary" for="defaultCheck5"> Spirituals </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" name="ckb" type="checkbox" value="Entertainment / Lifestyle" id="defaultCheck6" onclick='chkcontrol(5)';/>
-                          <label class="form-check-label text-primary" for="defaultCheck6"> Entertainment / Lifestyle </label>
-                        </div>
+                          <div class="form-check mt-md-3">
+                            <input class="form-check-input" name="ckb" type="checkbox" value="Business / Entrepreneur" id="defaultCheck4" onclick='chkcontrol(3)';/>
+                            <label class="form-check-label text-primary" for="defaultCheck4"> Business / Entrepreneur </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" name="ckb" type="checkbox" value="Spirituals" id="defaultCheck5" onclick='chkcontrol(4)';/>
+                            <label class="form-check-label text-primary" for="defaultCheck5"> Spirituals </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" name="ckb" type="checkbox" value="Entertainment / Lifestyle" id="defaultCheck6" onclick='chkcontrol(5)';/>
+                            <label class="form-check-label text-primary" for="defaultCheck6 "> Entertainment / Lifestyle </label>
+                          </div>
                         
                       </div>
                    
@@ -100,7 +100,7 @@ include("components/head.php");
                      <!-- Bottom Offcanvas -->
                      <div class="col-lg-3 col-md-6">
                       <div class="mt-3">
-                        <button class="btn btn-primary" type="button" id="savechoice" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"
+                        <button class="btn btn-primary" type="button" id="choicer" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"
                         >
                          Save my Choice
                         </button>
@@ -182,7 +182,14 @@ include("components/head.php");
       total =total +1;
     }
       if(total > 3){
-      alert("Please Select only three") 
+      alert("Please Select only Three Options") 
+      document.form1.ckb[j].checked = false ;
+      return false;
+}
+
+if(total == 1 || total == 2){
+      var a = document.getElementById("choicer").value;
+      alert(a); 
       document.form1.ckb[j].checked = false ;
       return false;
 }
@@ -190,10 +197,10 @@ include("components/head.php");
 } 
 </script>
 <script>
-   document.getElementById("form1").addEventListener("load", myFunction);
+document.getElementById("form1").addEventListener("load", myFunction);
 
-myFunction() {
-document.getElementById("savechoice").disabled = true;
+function myFunction() {
+document.getElementById("choicer").disabled = true;
 }
 </script>
   </body>

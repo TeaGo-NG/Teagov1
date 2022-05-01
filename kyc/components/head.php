@@ -1,5 +1,10 @@
 <?php
 include("../functions/init.php");
+
+if(!isset($_SESSION['user'])) {
+
+    redirect("../logout");
+}
 ?>
 <!DOCTYPE html>
 <html
