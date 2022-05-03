@@ -1,7 +1,30 @@
 <?php 
 include("components/head.php");
+
+
+//get user details
+$data = $_SESSION['user'];
+
+$sql = "SELECT * FROM `user` WHERE `user` = '$data'";
+$rsl = query($sql);
+
+if(row_count($rsl) == null) {
+
+  redirect(".././logout");
+
+} else {
+
+    $row = mysqli_fetch_array($rsl);
+
+    if($row['kyc'] == 0 && $row['categories'] == '') { 
+
+
 ?>
-<body>
+
+
+
+<body onload="myFunction(); ">
+
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
@@ -64,15 +87,15 @@ include("components/head.php");
                         <div class="col-md-3">
                           <div class="form-check mt-3">
                             <input class="form-check-input" name="ckb" type="checkbox" value="Academics / Career" id="defaultCheck1" onclick='chkcontrol(0)'; />
-                            <label class="form-check-label  text-primary" for="defaultCheck1"> Academics / Career </label>
+                            <label class="form-check-label mb-3 fw-bold text-dark" for="defaultCheck1"> Academics / Career </label>
                           </div>
                           <div class="form-check">
                             <input class="form-check-input" name="ckb" type="checkbox" value="Politics" id="defaultCheck2" onclick='chkcontrol(1)';/>
-                            <label class="form-check-label text-primary" for="defaultCheck2"> Politics </label>
+                            <label class="form-check-label mb-3 fw-bold text-dark" for="defaultCheck2"> Politics </label>
                           </div>
                           <div class="form-check">
                             <input class="form-check-input" name="ckb" type="checkbox" value="Techonology" id="defaultCheck3" onclick='chkcontrol(2)';/>
-                            <label class="form-check-label text-primary" for="defaultCheck3"> Techonology </label>
+                            <label class="form-check-label mb-3 fw-bold text-dark" for="defaultCheck3"> Techonology </label>
                           </div>
                         </div>
     
@@ -80,17 +103,17 @@ include("components/head.php");
                         <div class="col-md-3">
                           <div class="form-check mt-md-3">
                             <input class="form-check-input" name="ckb" type="checkbox" value="Business / Entrepreneur" id="defaultCheck4" onclick='chkcontrol(3)';/>
-                            <label class="form-check-label text-primary" for="defaultCheck4"> Business / Entrepreneur </label>
+                            <label class="form-check-label mb-3 fw-bold text-dark" for="defaultCheck4"> Business / Entrepreneur </label>
                           </div>
                           <div class="form-check">
                             <input class="form-check-input" name="ckb" type="checkbox" value="Spirituals" id="defaultCheck5" onclick='chkcontrol(4)';/>
-                            <label class="form-check-label text-primary" for="defaultCheck5"> Spirituals </label>
+                            <label class="form-check-label mb-3 fw-bold text-dark" for="defaultCheck5"> Spirituals </label>
                           </div>
                           <div class="form-check">
                             <input class="form-check-input" name="ckb" type="checkbox" value="Entertainment / Lifestyle" id="defaultCheck6" onclick='chkcontrol(5)';/>
-                            <label class="form-check-label text-primary" for="defaultCheck6 "> Entertainment / Lifestyle </label>
+                            <label class="form-check-label mb-3 fw-bold text-dark" for="defaultCheck6 "> Entertainment / Lifestyle </label>
                           </div>
-                        
+                          
                       </div>
                    
                       </div>
@@ -100,9 +123,10 @@ include("components/head.php");
                      <!-- Bottom Offcanvas -->
                      <div class="col-lg-3 col-md-6">
                       <div class="mt-3">
-                        <button class="btn btn-primary" type="button" id="test" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
-                         Save my Choice
-                        </button>
+                        <button class="btn btn-primary" type="button" id="test" data-bs-toggle="offcanvas"
+                          data-bs-target="#offcanvasBottom"
+                          aria-controls="offcanvasBottom"
+                          >Save my Choice</button>
                         <div
                           class="offcanvas offcanvas-bottom"
                           tabindex="-1"
@@ -122,10 +146,14 @@ include("components/head.php");
                             <p>
                               You've successfully completed your registration! <br/> Let's begin learning something new. Shall We?
                             </p>
-                            <button type="button" class="btn btn-primary me-2">Yes! Let's Shoot</button>
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas">
+                            
+                            <div id="shootmsg">
+                            <button type="button" class="btn btn-primary me-2" id="shoot">Yes! Let's Shoot</button>
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas" onclick="chkcontrol();">
                              Hold on pls!
                             </button>
+                            </div>
+                            
                           </div>
                         </div>
                       </div>
@@ -155,7 +183,19 @@ include("components/head.php");
     </div>
     <!-- / Layout wrapper -->
     
+<?php
 
+} else {
+?>
+
+
+<p>helo</p>
+
+
+<?php
+}
+}
+?>
 
 
     <!-- Core JS -->
@@ -180,6 +220,27 @@ include("components/head.php");
       if(document.form1.ckb[i].checked){
       total =total +1;
     }
+
+    if(total == 1) {
+
+      document.getElementById("test").disabled = true;
+
+      } else {
+
+      if(total == 2) {
+
+        document.getElementById("test").disabled = true;
+
+      } else {
+
+        if(total == 3) {
+
+          document.getElementById("test").disabled = false;
+        }
+      }
+      }
+
+
       if(total > 3){
       alert("Please Select only Three Options") 
       document.form1.ckb[j].checked = false ;
@@ -187,13 +248,13 @@ include("components/head.php");
 }
 }
 } 
-</script>
-<script>
-document.getElementById("form1").addEventListener("load", myFunction);
+
 
 function myFunction() {
-  document.getElementById("test").hidden=true;
-}
+	  document.getElementById("test").disabled = true;
+	}
 </script>
+
+<script src="../js/ajax.js"></script>
   </body>
 </html>
