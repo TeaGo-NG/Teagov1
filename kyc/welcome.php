@@ -190,20 +190,50 @@ if(row_count($rsl) == null) {
 
   $courses = $row['categories'];
   $choices = explode(",", $courses);
-
-  if(isset($_SESSION['confetti'])) {
-
-    //initiate confetti
-    echo '
-    
-    <script>shout();</script>
-    ';
-  } 
-
-  //unset($_SESSION['confetti']);
 ?>
 
-<body onload="shout();">
+<script>
+function shout() {
+
+var duration = 3 * 1000;
+var animationEnd = Date.now() + duration;
+var defaults = { startVelocity: 20, spread: 360, ticks: 60, zIndex: 1 };
+
+function randomInRange(min, max) {
+return Math.random() * (max - min) + min;
+}
+
+var interval = setInterval(function() {
+var timeLeft = animationEnd - Date.now();
+
+if (timeLeft <= 0) {
+  return clearInterval(interval);
+}
+
+var particleCount = 50 * (timeLeft / duration);
+// since particles fall down, start a bit higher than random
+confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+}, 250);
+}
+</script>
+
+<?php
+if(isset($_SESSION['confetti'])) {
+
+  //initiate confetti
+  echo '
+  <body onload="shout();">
+  ';
+}  else {
+
+  echo '
+  <body>
+  ';
+
+}
+unset($_SESSION['confetti']);
+?>
 
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
@@ -422,59 +452,5 @@ if(row_count($rsl) == null) {
       }
       
       </script>
-
-<script>
-
-function shout() {
-var end = Date.now() + (3 * 1000);
-
-// go Buckeyes!
-var colors = ['#bb0000', '#ffffff'];
-
-(function frame() {
-confetti({
-  particleCount: 2,
-  angle: 60,
-  spread: 60,
-  origin: { x: 0 },
-  colors: colors
-});
-confetti({
-  particleCount: 2,
-  angle: 120,
-  spread: 65,
-  origin: { x: 1 },
-  colors: colors
-});
-
-if (Date.now() < end) {
-  requestAnimationFrame(frame);
-}
-}());
-
-var duration = 3 * 1000;
-var animationEnd = Date.now() + duration;
-var defaults = { startVelocity: 30, spread: 60, ticks: 60, zIndex: 1 };
-
-function randomInRange(min, max) {
-return Math.random() * (max - min) + min;
-}
-
-var interval = setInterval(function() {
-var timeLeft = animationEnd - Date.now();
-
-if (timeLeft <= 0) {
-  return clearInterval(interval);
-}
-
-var particleCount = 50 * (timeLeft / duration);
-// since particles fall down, start a bit higher than random
-confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
-confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
-}, 250);
-}
-
-shout();
-</script>
   </body>
 </html>
