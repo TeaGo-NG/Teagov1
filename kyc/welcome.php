@@ -188,9 +188,7 @@ if(row_count($rsl) == null) {
 } else {
 
   $courses = $row['categories'];
-  //$cars = array($courses);
-
-  //echo $cars[0];
+  $choices = explode(",", $courses);
 ?>
 
 <body">
@@ -227,18 +225,19 @@ if(row_count($rsl) == null) {
                       <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionIconOne">
                         <button
                           type="button"
-                          class="accordion-button collapsed text-dark"
+                          class="accordion-button collapsed text-dark fw-bold"
                           data-bs-toggle="collapse"
                           data-bs-target="#accordionIcon-1"
                           aria-controls="accordionIcon-1"
                         >
-                          Accordion Item 1
+                        <h5 class="mt-4 text-dark"><?php echo $choices[0] ?></h5>
                         </button>
                       </h2>
 
                       <div id="accordionIcon-1" class="accordion-collapse collapse show" data-bs-parent="#accordionIcon">
                         <div class="accordion-body">
-                        <iframe src="https://drive.google.com/file/d/1zxBiRaKMxqjqaAUW8MnvYPmZ1aBmorlb/preview" height="100" width="100%" title="Iframe Example"></iframe>
+                          <p>1. shsh</p>
+                        <iframe src="https://drive.google.com/file/d/1zxBiRaKMxqjqaAUW8MnvYPmZ1aBmorlb/preview" height="50" width="100%" title="Iframe Example"></iframe>
                         </div>
                       </div>
                     </div>
@@ -252,7 +251,7 @@ if(row_count($rsl) == null) {
                           data-bs-target="#accordionIcon-2"
                           aria-controls="accordionIcon-2"
                         >
-                          Accordion Item 2
+                        <h5 class="mt-4 text-dark"><?php echo $choices[1] ?></h5>
                         </button>
                       </h2>
                       <div id="accordionIcon-2" class="accordion-collapse collapse" data-bs-parent="#accordionIcon">
@@ -274,7 +273,7 @@ if(row_count($rsl) == null) {
                           aria-expanded="true"
                           aria-controls="accordionIcon-3"
                         >
-                          Accordion Item 3
+                        <h5 class="mt-4 text-dark"><?php echo $choices[2] ?></h5>
                         </button>
                       </h2>
                       <div
@@ -409,6 +408,6 @@ function myFunction() {
 	}
 </script>
 
-<script src="js/ajax.js"></script>
+<script src="../js/ajax.js"></script>
   </body>
 </html>
