@@ -785,6 +785,9 @@ if(isset($_POST['coursechoice'])) {
 	$sql = "UPDATE `user` SET `kyc` = '1', `categories` = '$coursechoice' WHERE `user` = '$user'";
 	$rsl = query($sql);
 
+	//initiate confetti
+	$_SESSION['confetti'] = "initiated";
+
 	//redirect to learning portal
 	echo "<p style='display: inline !important;' class='fw-bold text-primary'>Just a minute, We're setting up your learning space... &nbsp;&nbsp;&nbsp;</p><div style='display: inline-block !important;' class='spinner-border spinner-border-sm text-primary' role='status'></div>";
 	echo '<script>window.location.href ="./welcome"</script>';

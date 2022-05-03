@@ -189,9 +189,20 @@ if(row_count($rsl) == null) {
 
   $courses = $row['categories'];
   $choices = explode(",", $courses);
+
+  if(isset($_SESSION['confetti'])) {
+
+    //initiate confetti
+    echo '
+    
+    <script>shout();</script>
+    ';
+  } 
+
+  //unset($_SESSION['confetti']);
 ?>
 
-<body">
+<body>
 
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
@@ -368,48 +379,103 @@ if(row_count($rsl) == null) {
 
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
-    <script>
+    <script src="../js/ajax.js"></script>
+    <script src="node_modules/canvas-confetti/dist/confetti.browser.js"></script>
+
+    <script type="text/javascript">
       function chkcontrol(j) {
       var total=0;
       for(var i=0; i < document.form1.ckb.length; i++){
       if(document.form1.ckb[i].checked){
       total =total +1;
+    
     }
 
-    if(total == 1) {
+    if(total == 1 || total == 2) {
 
-      document.getElementById("test").disabled = true;
+    document.getElementById("test").disabled = true;
 
-      } else {
+} else {
+  if(total == 3) {
 
-      if(total == 2) {
 
-        document.getElementById("test").disabled = true;
+    document.getElementById("test").disabled = false;
 
-      } else {
 
-        if(total == 3) {
+  }
 
-          document.getElementById("test").disabled = false;
-        }
-      }
-      }
 
+}
 
       if(total > 3){
-      alert("Please Select only Three Options") 
+      alert("Please Select only three") 
       document.form1.ckb[j].checked = false ;
       return false;
-}
-}
-} 
+      }
+      }
+      }
 
+      function myFunction() {
 
-function myFunction() {
-	  document.getElementById("test").disabled = true;
-	}
-</script>
+        document.getElementById("test").disabled = true;
+      }
+      
+      </script>
+  
 
-<script src="../js/ajax.js"></script>
+    <script>
+
+      function shout() {
+      var end = Date.now() + (4 * 1000);
+
+    // go Buckeyes!
+    var colors = ['#bb0000', '#ffffff'];
+
+    (function frame() {
+      confetti({
+        particleCount: 2,
+        angle: 60,
+        spread: 180,
+        origin: { x: 0 },
+        colors: colors
+      });
+      confetti({
+        particleCount: 2,
+        angle: 120,
+        spread: 185,
+        origin: { x: 1 },
+        colors: colors
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    }());
+    
+    var duration = 4 * 1000;
+    var animationEnd = Date.now() + duration;
+    var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 1 };
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    var interval = setInterval(function() {
+      var timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      var particleCount = 50 * (timeLeft / duration);
+      // since particles fall down, start a bit higher than random
+      confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+      confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+      confetti({spread: 360});
+    }, 250);
+  }
+
+    </script>
+  
   </body>
 </html>
