@@ -10,7 +10,7 @@ $rsl = query($sql);
 
 if(row_count($rsl) == null) {
 
-  redirect(".././logout");
+  redirect("./logout");
 
 } else {
 
@@ -186,10 +186,164 @@ if(row_count($rsl) == null) {
 <?php
 
 } else {
+
+  $courses = $row['categories'];
+  //$cars = array($courses);
+
+  //echo $cars[0];
 ?>
 
+<body">
 
-<p>helo</p>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+
+    
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+
+          <?php include("components/nav.php"); ?>
+
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4 text-primary">Welcome <span style="color: black;"> <?php echo Ucwords($_SESSION['user']) ?>!</span> ✨</h4>
+
+    <!-- Accordion -->
+    <h5 class="mt-4 text-dark">We've selected courses based on your interest</h5>
+              <div class="row">
+                <div class="col-md-6">
+                  <div id="accordionIcon" class="accordion mt-3 accordion-without-arrow">
+                    <div class="accordion-item card">
+                      <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionIconOne">
+                        <button
+                          type="button"
+                          class="accordion-button collapsed text-dark"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#accordionIcon-1"
+                          aria-controls="accordionIcon-1"
+                        >
+                          Accordion Item 1
+                        </button>
+                      </h2>
+
+                      <div id="accordionIcon-1" class="accordion-collapse collapse show" data-bs-parent="#accordionIcon">
+                        <div class="accordion-body">
+                        <iframe src="https://drive.google.com/file/d/1zxBiRaKMxqjqaAUW8MnvYPmZ1aBmorlb/preview" height="100" width="100%" title="Iframe Example"></iframe>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="accordion-item card">
+                      <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionIconTwo">
+                        <button
+                          type="button"
+                          class="accordion-button collapsed"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#accordionIcon-2"
+                          aria-controls="accordionIcon-2"
+                        >
+                          Accordion Item 2
+                        </button>
+                      </h2>
+                      <div id="accordionIcon-2" class="accordion-collapse collapse" data-bs-parent="#accordionIcon">
+                        <div class="accordion-body">
+                          Dessert ice cream donut oat cake jelly-o pie sugar plum cheesecake. Bear claw dragée oat cake
+                          dragée ice cream halvah tootsie roll. Danish cake oat cake pie macaroon tart donut gummies.
+                          Jelly beans candy canes carrot cake. Fruitcake chocolate chupa chups.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="accordion-item card active">
+                      <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionIconThree">
+                        <button
+                          type="button"
+                          class="accordion-button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#accordionIcon-3"
+                          aria-expanded="true"
+                          aria-controls="accordionIcon-3"
+                        >
+                          Accordion Item 3
+                        </button>
+                      </h2>
+                      <div
+                        id="accordionIcon-3"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#accordionIcon"
+                      >
+                        <div class="accordion-body">
+                          Oat cake toffee chocolate bar jujubes. Marshmallow brownie lemon drops cheesecake. Bonbon
+                          gingerbread marshmallow sweet jelly beans muffin. Sweet roll bear claw candy canes oat cake
+                          dragée caramels. Ice cream wafer danish cookie caramels muffin.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                 <!-- Bootstrap crossfade carousel -->
+                 <div class="col-md-6">
+                  <h5 class="pt-4 text-primary fw-bold">KYC SPONSPORS AND INSTRUCTORS</h5>
+
+                  <div
+                    id="carouselExample-cf"
+                    class="carousel carousel-dark slide carousel-fade"
+                    data-bs-ride="carousel"
+                  >
+                    <ol class="carousel-indicators">
+                      <li data-bs-target="#carouselExample-cf" data-bs-slide-to="0" class="active"></li>
+                      <li data-bs-target="#carouselExample-cf" data-bs-slide-to="1"></li>
+                      <li data-bs-target="#carouselExample-cf" data-bs-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="d-block w-100" src="assets/img/elements/hynitr.png" alt="First slide" />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src="assets/img/elements/download.png" alt="Second slide" />
+                      </div>
+                     
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExample-cf" role="button" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExample-cf" role="button" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!--/ Accordion -->
+
+</div>
+            
+
+
+            <?php include("components/footer.php"); ?>
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
 
 
 <?php
@@ -255,6 +409,6 @@ function myFunction() {
 	}
 </script>
 
-<script src="../js/ajax.js"></script>
+<script src="js/ajax.js"></script>
   </body>
 </html>

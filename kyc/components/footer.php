@@ -7,7 +7,7 @@
                     document.write(new Date().getFullYear());
                   </script>
                   |   Developed by
-                  <a href="https://hynitr.com" class="footer-link text-primary fw-bold" target="_blank">Hynitr</a>
+                  <a href="https://www.google.com/search?client=opera&q=hynitr&sourceid=opera&ie=UTF-8&oe=UTF-8" class="footer-link text-primary fw-bold" target="_blank">Hynitr</a>
                 </div>
               </div>
             </footer>
