@@ -19,9 +19,11 @@ return false;
 } </script>
 </head>
 
-<body  topmargin=''0'';  >
+<body onload="myFunction()">
 
-	 <form name=form1 method=post action=check.php>
+	<p id="ckb">df</p>
+
+	 <form name=form1 id="form1" method=post action=check.php>
 <table border=''0'' width=''250'' cellspacing=''0'' cellpadding=''0'' align=center>
 
 
@@ -36,5 +38,12 @@ return false;
 <tr bgcolor=''#f1f1f1'' ><td ><input type=checkbox name=ckb value=7 onclick='chkcontrol(6)';></td><td >HTML</td></tr>
 <tr bgcolor=''#ffffff'' ><td ><input type=checkbox name=ckb value=8 onclick='chkcontrol(7)';></td><td >Photo Shop</td></tr>
 </table></form>
+<button class="btn btn-primary" type="submit" id="test">Save my Choice</button>
 </body>
+<script>
+	function myFunction() {
+	  //document.getElementById("test").hidden=true;
+	  alert("hello");
+	}
+</script>
 </html>

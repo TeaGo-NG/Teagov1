@@ -773,4 +773,19 @@ if(isset($_POST['comment']) && isset($_POST['post']) && isset($_POST['num'])) {
 
 
 
+
+
+//----------- KYC VALIDATOR FUNCTIONS ------------//
+if(isset($_POST['coursechoice'])) {
+
+	$coursechoice = clean(escape($_POST['coursechoice']));
+	$user = $_SESSION['user'];
+
+	//update user table
+	$sql = "UPDATE `user` SET `kyc` = '1', `categories` = '$coursechoice' WHERE `user` = '$user'";
+	$rsl = query($sql);
+
+	//redirect to learning portal
+	echo "<p style='display: inline !important;' class='fw-bold text-primary'>Just a minute, We're setting up your learning space... &nbsp;&nbsp;&nbsp;</p><div style='display: inline-block !important;' class='spinner-border spinner-border-sm text-primary' role='status'></div>";
+}
 ?>

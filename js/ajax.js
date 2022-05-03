@@ -196,7 +196,33 @@ $(document).ready(function () {
 
  //Like
          
+  
+ 
+ // KYC VALIDATORS //
+ $("#shoot").click(function() {
       
+  //adds 
+  var a = [];
+
+  $.each($("input[name='ckb']:checked"), function(){
+    a.push($(this).val());
+});
+
+  //alert("My favourite sports are: " + a.join(", "));
+  var coursechoice = a.join(", ");
+
+  $("#shootmsg").html("<p style='display: inline !important;' class='fw-bold text-primary'>Loading... Please Wait &nbsp;&nbsp;&nbsp;</p><div style='display: inline-block !important;' class='spinner-border spinner-border-sm text-primary' role='status'></div>");  
+  
+    $.ajax({
+          type: "post",
+          url: "../functions/init.php",
+          data: { coursechoice: coursechoice },
+          success: function (data) {
+            $("#shootmsg").html("<p style='display: inline !important;' class='fw-bold text-primary'>"+ data +"</p>");
+          },
+        });
+});
+
 
   });
   
