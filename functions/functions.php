@@ -781,8 +781,11 @@ if(isset($_POST['coursechoice'])) {
 	$coursechoice = clean(escape($_POST['coursechoice']));
 	$user = $_SESSION['user'];
 
+	//convert to associative array
+  	$choices = explode(",", $coursechoice);
+
 	//update user table
-	$sql = "UPDATE `user` SET `kyc` = '1', `categories` = '$coursechoice' WHERE `user` = '$user'";
+	$sql = "UPDATE `user` SET `kyc` = '1', `choice 1` = '$choices[0]', `choice 2` = '$choices[1]', `choice 3` = '$choices[2]' WHERE `user` = '$user'";
 	$rsl = query($sql);
 
 	//initiate confetti

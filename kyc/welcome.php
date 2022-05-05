@@ -16,7 +16,7 @@ if(row_count($rsl) == null) {
 
     $row = mysqli_fetch_array($rsl);
 
-    if($row['kyc'] == 0 && $row['categories'] == '') { 
+    if($row['kyc'] == 0 && $row['choice 1'] == '' && $row['choice 1'] == '' && $row['choice 1'] == '') { 
 
 
 ?>
@@ -94,8 +94,8 @@ if(row_count($rsl) == null) {
                             <label class="form-check-label mb-3 fw-bold text-dark" for="defaultCheck2"> Politics </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" name="ckb" type="checkbox" value="Techonology" id="defaultCheck3" onclick='chkcontrol(2)';/>
-                            <label class="form-check-label mb-3 fw-bold text-dark" for="defaultCheck3"> Techonology </label>
+                            <input class="form-check-input" name="ckb" type="checkbox" value="Technology" id="defaultCheck3" onclick='chkcontrol(2)';/>
+                            <label class="form-check-label mb-3 fw-bold text-dark" for="defaultCheck3"> Technology </label>
                           </div>
                         </div>
     
@@ -190,6 +190,8 @@ if(row_count($rsl) == null) {
 
   $courses = $row['categories'];
   $choices = explode(",", $courses);
+
+
 ?>
 
 <script>
@@ -272,16 +274,13 @@ unset($_SESSION['confetti']);
                           data-bs-target="#accordionIcon-1"
                           aria-controls="accordionIcon-1"
                         >
-                        <h5 class="mt-4 text-dark"><?php echo $choices[0] ?></h5>
+                        <h5 class="mt-4 text-dark"><?php echo $choices[0]; ?></h5>
                         </button>
                       </h2>
 
                       <div id="accordionIcon-1" class="accordion-collapse collapse show" data-bs-parent="#accordionIcon">
                         <div class="accordion-body">
-                          <p>1. shsh</p>
-                        <iframe src="https://drive.google.com/file/d/1zxBiRaKMxqjqaAUW8MnvYPmZ1aBmorlb/preview" height="50" width="100%" title="Iframe Example"></iframe>
-                          <p>2. shsh</p>
-                        <iframe src="https://drive.google.com/file/d/1zxBiRaKMxqjqaAUW8MnvYPmZ1aBmorlb/preview" height="50" width="100%" title="Iframe Example"></iframe>
+                        <?php echo $displayframes; ?>
                         </div>
                       </div>
                     </div>
@@ -300,9 +299,7 @@ unset($_SESSION['confetti']);
                       </h2>
                       <div id="accordionIcon-2" class="accordion-collapse collapse" data-bs-parent="#accordionIcon">
                         <div class="accordion-body">
-                          Dessert ice cream donut oat cake jelly-o pie sugar plum cheesecake. Bear claw dragée oat cake
-                          dragée ice cream halvah tootsie roll. Danish cake oat cake pie macaroon tart donut gummies.
-                          Jelly beans candy canes carrot cake. Fruitcake chocolate chupa chups.
+                        <?php echo $displayframes2 ?>
                         </div>
                       </div>
                     </div>
@@ -323,12 +320,9 @@ unset($_SESSION['confetti']);
                       <div
                         id="accordionIcon-3"
                         class="accordion-collapse collapse"
-                        data-bs-parent="#accordionIcon"
-                      >
+                        data-bs-parent="#accordionIcon">
                         <div class="accordion-body">
-                          Oat cake toffee chocolate bar jujubes. Marshmallow brownie lemon drops cheesecake. Bonbon
-                          gingerbread marshmallow sweet jelly beans muffin. Sweet roll bear claw candy canes oat cake
-                          dragée caramels. Ice cream wafer danish cookie caramels muffin.
+                       <?php echo $displayframes3 ?>
                         </div>
                       </div>
                     </div>
