@@ -486,10 +486,10 @@ if(row_count($rsl) == null) {
                     </ol>
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img class="d-block w-100" src="assets/img/elements/hynitr.png" alt="First slide" />
+                        <img class="d-block w-100" src="assets/img/elements/post.png" alt="First slide" />
                       </div>
                       <div class="carousel-item">
-                        <img class="d-block w-100" src="assets/img/elements/download.png" alt="Second slide" />
+                        <img class="d-block w-100" src="assets/img/elements/hynitr.png" alt="Second slide" />
                       </div>
                      
                     </div>
