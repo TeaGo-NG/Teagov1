@@ -547,9 +547,6 @@ if(row_count($rsl) == null) {
     <script src="assets/js/main.js"></script>
     <script src="../js/ajax.js"></script>
     <script src="node_modules/canvas-confetti/dist/confetti.browser.js"></script>
-   <?php
-   echo  '
-    
     <script>
       function shout() {
 
@@ -588,23 +585,9 @@ if(row_count($rsl) == null) {
         });
           
       }
-';
 
-if(isset($_SESSION['confetti'])) {
-
-  echo 'shout();';
-
-}  else {
-
-  unset($_SESSION['confetti']);
-
-}
-      
-echo '
-    </script>
-
-    ';
-    ?>
+      shout();
+      </script>
 
     <script type="text/javascript">
       function chkcontrol(j) {
