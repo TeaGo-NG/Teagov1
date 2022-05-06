@@ -183,58 +183,199 @@ if(row_count($rsl) == null) {
     </div>
     <!-- / Layout wrapper -->
 
-    
+
 <?php
+} else {
+  
+
+  $choice1 = $row['choice 1'];
+  $choice2 = $row['choice 2'];
+  $choice3 = $row['choice 3'];
+
+
+  //split the courses into thier categories to get distint lectures from google drive
+  if($choice1 == 'Academics / Career' || $choice2 == 'Academics / Career' || $choice3 == 'Academics / Career') {
+
+    $varchoiceaca =  '
+    <p>1. Academics and Career by Adedigba Israel Taiwo.</p>
+    <iframe src="https://drive.google.com/file/d/1zxBiRaKMxqjqaAUW8MnvYPmZ1aBmorlb/preview" height="50" width="100%" title="1. Academics and Career by Adedigba Israel Taiwo."></iframe>
+    <p>2. Academics and Career by Debbie AGBOOLA</p>
+    <iframe src="https://drive.google.com/file/d/1nK2lDRd3ds20KE2hmLmgVjQNQ-PPjaLI/preview" height="50" width="100%" title="2. Academics and Career by Debbie AGBOOLA"></iframe>
+    <p>3. Dare to Soar by Faith Omoniyi</p>
+    <iframe src="https://drive.google.com/file/d/1-iOu2ELItOmzEUdVzaOsLgQZObCbVCXp/preview" height="50" width="100%" title="3. Dare to Soar by Faith Omoniyi"></iframe>
+      ';
+ 
+ 
+   } else {
+ 
+     if($choice1 == 'Politics' || $choice2 == 'Politics' || $choice3 == 'Politics') {
+ 
+    $varchoiceplt =  '
+    <p>1. Leadership in political space by Owolabi Adekunle</p>
+    <iframe src="https://drive.google.com/file/d/12dy6QGthwUZU6zxh_n_tAoxUqz_p7Qec/preview" height="50" width="100%" title="1. Leadership in political space by Owolabi Adekunle"></iframe>
+    <p>2. Finding your templates as a student politician by Seyi Babs</p>
+    <iframe src="https://drive.google.com/file/d/14OvFQtCOR0j6ttcWB6hVPwqE6tKHZqYD/preview" height="50" width="100%" title="2. Finding your templates as a student politician by Seyi Babs"></iframe>
+    <p>3. Participating in students politics by Ajayi Dotun Emmanuel</p>
+    <iframe src="https://drive.google.com/file/d/12theMOhiW6WInCm-6lq5wiV_5SpQnC1R/preview" height="50" width="100%" title="3. Participating in students politics by Ajayi Dotun Emmanuel"></iframe>
+      ';
+ 
+ 
+     
+ 
+     } else {
+ 
+       if($choice1 == 'Technology' || $choice2 == 'Technology' || $choice3 == 'Technology') {
+ 
+    $varchoicetch =  '
+    <p>1. Maximizing the opportunities around you on campus in the media and tech space by Helena Idiovo</p>
+    <iframe src="https://drive.google.com/file/d/1-hc-FdC4P63dPBsIiRAvGGlp80_oprg4/preview" height="50" width="100%" title="1. Maximizing the opportunities around you on campus in the media and tech space by Helena Idiovo"></iframe>
+     ';
+ 
+    
+ 
+       } else {
+ 
+         if($choice1 == 'Business / Entrepreneur' || $choice2 == 'Business / Entrepreneur' || $choice3 == 'Business / Entrepreneur') {
+ 
+           $varchoicebiz =  '
+    <p>1. Lead generation by AYENI JONATHAN</p>
+    <iframe src="https://drive.google.com/file/d/1zyLtn_E3_f70agOthYPzLpKrk5i2BdbN/preview" height="50" width="100%" title="1. Lead generation by AYENI JONATHAN"></iframe>
+    <p>2. Building a business that counts by Victor Akinode </p>
+    <iframe src="https://drive.google.com/file/d/1-aEkF45PrdzdHJyN9slERNcpVGftTHZ_/preview" height="50" width="100%" title="2. Building a business that counts by Victor Akinode"></iframe>
+    <p>3. Formidable Qualities by Victor Akinode</p>
+    <iframe src="https://drive.google.com/file/d/1-_egfzA15icwCZ3hoEbe4zBqgZf2eQvY/preview" height="50" width="100%" title="3. Formidable Qualities by Victor Akinode"></iframe>
+    <p>4. Business and Entreprenuership by Seyi Babs</p>
+    <iframe src="https://drive.google.com/file/d/14djPfsy-DJUUl9qsPh4DIgIygaihn_4s/preview" height="50" width="100%" title="4. Business and Entreprenuership by Seyi Babs"></iframe>
+       
+     ';
+ 
+ 
+      
+ 
+         } else {
+ 
+           if($choice1 == 'Spirituals' || $choice2 == 'Spirituals' || $choice3 == 'Spirituals') {
+ 
+ 
+             $varchoicesprl =  '
+             <p>1. Knowing God on Campus by Alabi Ayoade</p>
+             <iframe src="https://drive.google.com/file/d/13YIa2Z5cFcoXyc5bvQWC_ESjpBIq1Xtu/preview" height="50" width="100%" title="1. Knowing God on Campus by Alabi Ayoade"></iframe>
+            ';
+ 
+ 
+              
+ 
+ 
+           } else {
+ 
+             if($choice1 == 'Entertainment / Lifestyle' || $choice2 == 'Entertainment / Lifestyle' || $choice3 == 'Entertainment / Lifestyle') {
+ 
+               $varchoiceent =  '
+               <p>1. Lifestyle by John-muboh Oluwaseun</p>
+               <iframe src="https://drive.google.com/file/d/1fbwc7KeEfXf9OHH6Ib4G8edx3sohJfXh/preview" height="50" width="100%" title="1. Lifestyle by John-muboh Oluwaseun"></iframe>
+               <p>2. Personal Branding by Rasaq Olamide </p>
+               <iframe src="https://drive.google.com/file/d/1-6HpQDFnPQafIIGAXPh4TsrJfTX2cWoD/preview" height="50" width="100%" title="2. Personal Branding by Rasaq Olamide"></iframe>
+               <p>3. Leveraging on social media by Rasaq Olamide</p>
+               <iframe src="https://drive.google.com/file/d/1-6ef4yOV7rGLseXAdCau4hikHELRWwHR/preview" height="50" width="100%" title="3. Leveraging on social media by Rasaq Olamide"></iframe>
+               
+                ';
+ 
+             
+             }
+ 
+           }
+ 
+         }
+ 
+ 
+       }
+       
+     }
+   } 
+
+
+
+
+
+   //first choice split
+
+  if($choice1 == 'Academics / Career') {
+
+    $displayframes = $varchoiceaca;
+
+  } else {
+
+    if($choice1 == 'Politics') {
+
+      $displayframes = $varchoicesprl;
+    } else {
+
+      if($choice1 == 'Technology') {
+
+        $displayframes = $varchoicetch;
+      }else {
+
+        if($choice1 == 'Business / Entrepreneur') {
+
+          $displayframes = $varchoicebiz;
+
+        } else {
+
+          if($choice1 == 'Spirituals') {
+
+            $displayframes = $varchoicesprl;
+          }else {
+
+            if($choice1 == 'Entertainment / Lifestyle') {
+
+              $displayframes = $varchoiceent;
+            }
+          }
+        }
+      }
+    }
+  }
+
+ //2nd choice
+
+ if($choice2 == 'Academics / Career') {
+
+  $displayframes2 = $varchoiceaca;
 
 } else {
 
-  $courses = $row['categories'];
-  $choices = explode(",", $courses);
+  if($choice2 == 'Politics') {
 
+    $displayframes2 = $varchoicesprl;
+  } else {
 
-?>
+    if($choice2 == 'Technology') {
 
-<script>
-function shout() {
+      $displayframes2 = $varchoicetch;
+    }else {
 
-var duration = 3 * 1000;
-var animationEnd = Date.now() + duration;
-var defaults = { startVelocity: 20, spread: 360, ticks: 60, zIndex: 1 };
+      if($choice2 == 'Business / Entrepreneur') {
 
-function randomInRange(min, max) {
-return Math.random() * (max - min) + min;
+        $displayframess = $varchoicebiz;
+
+      } else {
+
+        if($choice2 == 'Spirituals') {
+
+          $displayframes2 = $varchoicesprl;
+        }else {
+
+          if($choice2 == 'Entertainment / Lifestyle') {
+
+            $displayframess = $varchoiceent;
+          }
+        }
+      }
+    }
+  }
 }
 
-var interval = setInterval(function() {
-var timeLeft = animationEnd - Date.now();
 
-if (timeLeft <= 0) {
-  return clearInterval(interval);
-}
-
-var particleCount = 50 * (timeLeft / duration);
-// since particles fall down, start a bit higher than random
-confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
-confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
-}, 250);
-}
-</script>
-
-<?php
-if(isset($_SESSION['confetti'])) {
-
-  //initiate confetti
-  echo '
-  <body onload="shout();">
-  ';
-}  else {
-
-  echo '
-  <body>
-  ';
-
-}
-unset($_SESSION['confetti']);
 ?>
 
     <!-- Layout wrapper -->
@@ -274,13 +415,13 @@ unset($_SESSION['confetti']);
                           data-bs-target="#accordionIcon-1"
                           aria-controls="accordionIcon-1"
                         >
-                        <h5 class="mt-4 text-dark"><?php echo $choices[0]; ?></h5>
+                        <h5 class="mt-4 text-dark"><?php echo $choice1; ?></h5>
                         </button>
                       </h2>
 
                       <div id="accordionIcon-1" class="accordion-collapse collapse show" data-bs-parent="#accordionIcon">
                         <div class="accordion-body">
-                        <?php echo $displayframes; ?>
+                        <?php echo $displayframes  ?>
                         </div>
                       </div>
                     </div>
@@ -294,12 +435,12 @@ unset($_SESSION['confetti']);
                           data-bs-target="#accordionIcon-2"
                           aria-controls="accordionIcon-2"
                         >
-                        <h5 class="mt-4 text-dark"><?php echo $choices[1] ?></h5>
+                        <h5 class="mt-4 text-dark"><?php echo $choice2 ?></h5>
                         </button>
                       </h2>
                       <div id="accordionIcon-2" class="accordion-collapse collapse" data-bs-parent="#accordionIcon">
                         <div class="accordion-body">
-                        <?php echo $displayframes2 ?>
+                        <?php echo $displayframes2  ?>
                         </div>
                       </div>
                     </div>
@@ -314,7 +455,7 @@ unset($_SESSION['confetti']);
                           aria-expanded="true"
                           aria-controls="accordionIcon-3"
                         >
-                        <h5 class="mt-4 text-dark"><?php echo $choices[2] ?></h5>
+                        <h5 class="mt-4 text-dark"><?php echo $choice3 ?></h5>
                         </button>
                       </h2>
                       <div
@@ -322,7 +463,7 @@ unset($_SESSION['confetti']);
                         class="accordion-collapse collapse"
                         data-bs-parent="#accordionIcon">
                         <div class="accordion-body">
-                       <?php echo $displayframes3 ?>
+                       <?php  ?>
                         </div>
                       </div>
                     </div>
@@ -406,6 +547,64 @@ unset($_SESSION['confetti']);
     <script src="assets/js/main.js"></script>
     <script src="../js/ajax.js"></script>
     <script src="node_modules/canvas-confetti/dist/confetti.browser.js"></script>
+   <?php
+   echo  '
+    
+    <script>
+      function shout() {
+
+        var count = 900;
+        var defaults = {
+          origin: { y: 0.7 }
+        };
+        
+        function fire(particleRatio, opts) {
+          confetti(Object.assign({}, defaults, opts, {
+            particleCount: Math.floor(count * particleRatio)
+          }));
+        }
+        
+        fire(0.25, {
+          spread: 26,
+          startVelocity: 55,
+        });
+        fire(0.2, {
+          spread: 360,
+        });
+        fire(0.35, {
+          spread: 360,
+          decay: 0.91,
+          scalar: 0.8
+        });
+        fire(0.1, {
+          spread: 360,
+          startVelocity: 25,
+          decay: 0.92,
+          scalar: 1.2
+        });
+        fire(0.1, {
+          spread: 360,
+          startVelocity: 45,
+        });
+          
+      }
+';
+
+if(isset($_SESSION['confetti'])) {
+
+  echo 'shout();';
+
+}  else {
+
+  unset($_SESSION['confetti']);
+
+}
+      
+echo '
+    </script>
+
+    ';
+    ?>
 
     <script type="text/javascript">
       function chkcontrol(j) {
